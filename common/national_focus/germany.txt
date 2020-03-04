@@ -1,0 +1,53 @@
+focus_tree = {
+	id = german_focus
+
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 10
+			tag = GER
+		}
+	}
+
+	default = yes
+	reset_on_civil_war = no
+
+	### Political Front
+
+	focus = {
+		id = GER_rhineland
+		icon = GFX_goal_GER_rhineland
+		x = 6
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			51 = {
+				is_demilitarized_zone = yes
+			}
+			42 = {
+				is_demilitarized_zone = yes
+			}
+		}
+		available_if_capitulated = no
+		search_filter = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			51 = {
+				set_demilitarized_zone = no
+			}
+			42 = {
+				set_demilitarized_zone = no
+			}
+			FRA = {
+				country_event = {
+					id = germany.60
+					days = 0
+				}
+			}
+		}
+	}
+
+}
