@@ -6,7 +6,7 @@ focus_tree = {
 		
 		modifier = {
 			add = 25
-			tag = SLO
+			is_subject_of = GER
 		}
 	}
 
