@@ -1,19 +1,33 @@
+﻿### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+
 focus_tree = {
 	id = german_focus
-
+	
 	country = {
 		factor = 0
-
+		
 		modifier = {
 			add = 10
 			tag = GER
 		}
 	}
 
-	default = yes
-	reset_on_civil_war = no
+	continuous_focus_position = {
+		x = 2000
+		y = 1000
+	}
+	
+	default = no
 
-	### Political Front
+	##########################
+	#### POLITICAL BRANCH ####
+	##########################
 
 	focus = {
 		id = GER_rhineland
@@ -21,24 +35,18 @@ focus_tree = {
 		x = 6
 		y = 0
 		cost = 10
+
 		ai_will_do = {
-			factor = 1
+			factor = 10
 		}
-		available = {
-			51 = {
-				is_demilitarized_zone = yes
-			}
-			42 = {
-				is_demilitarized_zone = yes
-			}
-		}
-		available_if_capitulated = no
-		search_filter = { FOCUS_FILTER_POLITICAL }
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND }
 		completion_reward = {
-			51 = {
+			42 = {
 				set_demilitarized_zone = no
 			}
-			42 = {
+			51 = {
 				set_demilitarized_zone = no
 			}
 			FRA = {
@@ -47,7 +55,1003 @@ focus_tree = {
 					days = 0
 				}
 			}
+			army_experience = 5
+			add_political_power = 100
+			add_named_threat = { 
+    			threat = 5 
+   				name = GER_rhineland
+			}
+		}
+	}	
+
+	focus = {
+		id = GER_anschluss
+		icon = GFX_goal_GER_anschluss
+		prerequisite = { focus = GER_rhineland }
+		available = {
+			AUS = {
+				exists = yes
+			}
+			has_army_manpower = {
+				size > 500000
+			}
+		}
+		x = -4
+		y = 1
+		relative_position_id = GER_rhineland
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_ANSCHLUSS }
+		completion_reward = {
+			AUS = {
+				country_event = {
+					id = germany.28
+					days = 0
+				}
+			}
+			army_experience = 20
+			add_political_power = 75
+			add_named_threat = { 
+    			threat = 5 
+   				name = GER_anschluss
+			}
+			custom_effect_tooltip = anschluss_mefo_bills_tt
 		}
 	}
+
+	focus = {
+		id = GER_demand_sudetenland
+		icon = GFX_goal_GER_demand_sudetenland
+		prerequisite = { focus = GER_rhineland }
+		mutually_exclusive = { focus = GER_czech_friend }
+		available = {
+			controls_state = 4
+			controls_state = 152
+		}
+		x = 0
+		y = 1
+		relative_position_id = GER_rhineland
+		cost = 10
+
+		ai_will_do = {
+			factor = 6
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_SUDETENLAND }
+		completion_reward = {
+			ENG = {
+				country_event = {
+					id = germany.40
+					days = 0
+				}
+			}
+			army_experience = 30
+			add_named_threat = { 
+    			threat = 8 
+   				name = GER_demand_sudetenland
+			}
+
+		}
+	}	
+
+	focus = {
+		id = GER_czech_friend
+		icon = GFX_goal_GER_czech_friend
+		prerequisite = { focus = GER_rhineland }
+		mutually_exclusive = { focus = GER_demand_sudetenland }
+		x = 2
+		y = 1
+		relative_position_id = GER_rhineland
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_SUDETENLAND }
+		completion_reward = {
+
+		}
+	}	
+
+	focus = {
+		id = GER_reassert_eastern_claims
+		icon = GFX_goal_GER_reassert_east
+		prerequisite = { focus = GER_rhineland }
+		x = 4
+		y = 1
+		relative_position_id = GER_rhineland
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_REASSERT }
+		completion_reward = {
+			add_state_claim = 188
+			add_state_claim = 85
+			add_state_claim = 86
+			add_state_claim = 762
+			LIT = {
+				country_event = {
+					id = baltic.4
+					days = 0
+				}
+			}
+		}
+	}	
+
+	focus = {
+		id = GER_alliance_italy
+		icon = GFX_goal_generic_ally_italy
+		prerequisite = { focus = GER_anschluss }
+		x = 0
+		y = 1
+		relative_position_id = GER_anschluss
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_ANSCHLUSS }
+		completion_reward = {
+			ITA = {
+				add_opinion_modifier = {
+			    	target = GER
+    				modifier = GER_pact_of_steel
+				}
+			}
+			add_political_power = 50
+		}
+	}	
+
+	focus = {
+		id = GER_alliance_spain
+		icon = GFX_goal_generic_ally_franco
+		prerequisite = { focus = GER_alliance_italy }
+		available = {
+			any_country = {
+				original_tag = SPR
+				has_civil_war = no
+				has_government = fascism
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = GER_alliance_italy
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		search_filters = { GER_RHINELAND GER_ANSCHLUSS }
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = { has_dlc = "La Resistance" }
+				}
+				random_other_country = {
+					limit = {
+						original_tag = SPR
+						has_government = fascism
+					}
+					add_opinion_modifier = {	
+						target = GER
+						modifier = GER_ally_spain
+					}
+				}
+			}
+			add_political_power = 50
+		}
+	}	
+
+	focus = {
+		id = GER_demand_slovenia
+		icon = GFX_goal_GER_take_slovenia
+		prerequisite = { focus = GER_anschluss }
+		available = {
+			YUG = {
+				exists = yes
+				controls_state = 102
+			}
+			controls_state = 4
+			controls_state = 152
+			has_army_manpower = {
+				size > 750000
+			}
+		}
+		x = 2
+		y = 1
+		relative_position_id = GER_anschluss
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_ANSCHLUSS }
+		completion_reward = {
+			ENG = {
+				country_event = {
+					id = britain.14
+					days = 0
+				}
+			}
+			add_political_power = 100
+			add_named_threat = {
+				threat = 2
+				name = GER_demand_slovenia
+			}
+		}
+	}	
+
+	focus = {
+		id = GER_first_ljubljana_award
+		icon = GFX_goal_GER_ljubljana_award_yug
+		prerequisite = { focus = GER_demand_slovenia }
+		x = 0
+		y = 1
+		relative_position_id = GER_demand_slovenia
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_ANSCHLUSS }
+		completion_reward = {
+			HUN = {
+				country_event = {
+					id = germany.130
+					days = 0
+				}
+			}
+			ITA = {
+				country_event = {
+					id = germany.131
+					days = 0
+				}
+			}
+			ROM = {
+				country_event = {
+					id = germany.132
+					days = 0
+				}
+			}
+			BUL = {
+				country_event = {
+					id = germany.133
+					days = 0
+				}
+			}
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = GER_fate_of_yugoslavia
+		icon = GFX_goal_GER_yugoslavia_fate
+		prerequisite = { focus = GER_first_ljubljana_award }
+		available = {
+			has_army_manpower = {
+				size > 750000
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = GER_first_ljubljana_award
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_ANSCHLUSS }
+		completion_reward = {
+			country_event = {
+				id = germany.98
+				days = 0
+			}
+			add_political_power = 50
+			custom_effect_tooltip = yugoslavia_mefo_bills_tt
+		}
+	}
+
+	focus = {
+		id = GER_first_vienna_award
+		icon = GFX_goal_GER_first_vienna_award
+		prerequisite = { focus = GER_demand_sudetenland }
+		x = 0
+		y = 1
+		relative_position_id = GER_demand_sudetenland
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_SUDETENLAND }
+		completion_reward = {
+			HUN = {
+				country_event = {
+					id = germany.51
+					days = 0
+				}
+			}
+			POL = {
+				country_event = {
+					id = germany.52
+					days = 0
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = GER_fate_of_czechoslovakia
+		icon = GFX_goal_GER_czechoslovakia_fate
+		prerequisite = { focus = GER_first_vienna_award }
+		available = {
+			has_army_manpower = {
+				size > 750000
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = GER_first_vienna_award
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_SUDETENLAND }
+		completion_reward = {
+			CZE = {
+				country_event = {
+					id = germany.53
+					days = 0
+				}
+			}
+			add_political_power = 30
+			army_experience = 10
+			custom_effect_tooltip = czechoslovakia_mefo_bills_tt
+		}
+	}
+
+	focus = {
+		id = GER_danzig_for_slovakia
+		icon = GFX_goal_GER_dfs
+		prerequisite = { focus = GER_fate_of_czechoslovakia }
+		mutually_exclusive = { focus = GER_danzig_or_war }
+		available = {
+			has_army_manpower = {
+				size > 900000
+			}
+			CZE = {
+				exists = no
+			}
+			POL = {
+				exists = yes
+				controls_state = 85
+				controls_state = 86
+				controls_state = 762
+			}
+		}
+		bypass = {
+			controls_state = 85
+			controls_state = 86
+			controls_state = 762
+		}
+		x = 0
+		y = 2
+		relative_position_id = GER_fate_of_czechoslovakia
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_SUDETENLAND }
+		completion_reward = {
+			POL = {
+				country_event = {
+					id = germany.80
+					days = 0
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = GER_second_vienna_award
+		icon = GFX_goal_GER_second_vienna_award
+		prerequisite = { focus = GER_fate_of_czechoslovakia OR = GER_czech_friend }
+		available = {
+			has_army_manpower = {
+				size = 775000
+			}
+		}
+		x = 2
+		y = 1
+		relative_position_id = GER_fate_of_czechoslovakia
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_SUDETENLAND }
+		completion_reward = {
+			if = {
+				limit = {
+					HUN = {
+						is_friend_or_potential_friend_of_GER = yes
+					}
+					ROM = {
+						controls_state = 76
+						NOT = { has_war_with = HUN }
+					}
+				}
+				country_event = {
+					id = germany.20
+					days = 0
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = GER_anti_comintern
+		icon = GFX_goal_generic_no_soviet_propaganda
+		prerequisite = { focus = GER_rhineland }
+		available = {
+			SOV = {
+				exists = yes
+				has_government = communism
+			}
+		}
+		x = 6
+		y = 1
+		relative_position_id = GER_rhineland
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND }
+		completion_reward = {
+			SOV = {
+				add_opinion_modifier = { 
+					target = ROOT
+					modifier = pact_against_us
+				}
+			}
+			add_named_threat = {
+				threat = 2
+				name = GER_anti_comitern_pact
+			}
+			every_other_country = {
+				limit = {
+					NOT = { tag = GER }
+					NOT = { has_war_with = GER }
+					NOT = { is_in_faction_with = SOV }
+					is_subject = no
+					OR = {
+						capital_scope = {
+								is_on_continent = europe
+						}
+						capital_scope = {
+								is_on_continent = asia
+						}
+						num_of_factories > 30
+					}
+					OR = {
+						has_government = fascism 
+						AND = {
+							is_neighbor_of = SOV
+							NOT = { has_government = communism }
+						}
+					}
+				}
+				country_event = germany.5
+			}
+		}
+	}	
+
+	focus = {
+		id = GER_prep_poland
+		icon = GFX_goal_generic_attack_poland
+		prerequisite = { focus = GER_reassert_eastern_claims }
+		available = {
+			POL = {
+				exists = yes
+				NOT = {
+					in_faction_with = GER
+				}
+			}
+			has_army_manpower = {
+				size > 900000
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = GER_reassert_eastern_claims
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_REASSERT }
+		completion_reward = {
+			5 = {
+				add_building_construction = {
+    				type = bunker
+    				level = 10
+    				instant_build = yes
+    				province = {
+        				all_provinces = yes
+        				limit_to_border = yes
+  					}
+				}
+			}
+		}
+	}	
+
+	focus = {
+		id = GER_mr_pact
+		icon = GFX_goal_GER_mr_pact
+		prerequisite = { focus = GER_prep_poland }
+		available = {
+			POL = {
+				exists = yes
+				NOT = {
+					in_faction_with = GER
+				}
+			}
+			SOV = {
+				exists = yes
+				NOT = {
+					has_war_with = GER
+				}
+			}
+			has_army_manpower = {
+				size > 900000
+			}
+		}
+		x = 2
+		y = 2
+		relative_position_id = GER_prep_poland
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_REASSERT }
+		completion_reward = {
+			SOV = {
+				country_event = {
+					id = germany.11
+					days = 0
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = GER_danzig_or_war
+		icon = GFX_goal_GER_dow
+		prerequisite = { focus = GER_prep_poland }
+		available = {
+			has_army_manpower = {
+				size > 900000
+			}
+			POL = {
+				exists = yes
+				controls_state = 85
+				controls_state = 86
+				controls_state = 762
+			}
+		}
+		bypass = {
+			controls_state = 85
+			controls_state = 86
+			controls_state = 762
+		}
+		x = 0
+		y = 3
+		relative_position_id = GER_prep_poland
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_REASSERT }
+		completion_reward = {
+			POL = {
+				country_event = {
+					id = germany.86
+					days = 0
+				}
+			}
+			army_experience = 40
+			add_political_power = 75
+		}
+	}	
+
+	focus = {
+		id = GER_strike_france
+		icon = GFX_focus_attack_france
+		prerequisite = { focus = GER_danzig_or_war OR = GER_danzig_for_slovakia }
+		available = {
+			FRA = {
+				exists = yes
+			}
+			has_army_manpower = {
+				size > 950000
+			}
+		}
+		x = 2
+		y = 1
+		relative_position_id = GER_danzig_for_slovakia
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_WESTWARD }
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = FRA
+			}
+		}
+	}	
+
+	focus = {
+		id = GER_weserubung
+		icon = GFX_goal_GER_weserubung
+		prerequisite = { focus = GER_strike_france }
+		available = {
+			DEN = {
+				exists = yes
+			}
+			NOR = {
+				exists = yes
+			}
+		}
+		x = -4
+		y = 1
+		relative_position_id = GER_strike_france
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_WESTWARD }
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = DEN
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = NOR
+			}
+			add_tech_bonus = {
+				name = tp_bonus
+				bonus = 1.0
+				ahead_reduction = 2
+				uses = 1
+				category = tp_tech
+			}
+		}
+	}	
+
+	focus = {
+		id = GER_around_maginot
+		icon = GFX_goal_GER_around_maginot
+		prerequisite = { focus = GER_strike_france }
+		available = {
+			HOL = {
+				exists = yes
+			}
+			BEL = {
+				exists = yes
+			}
+			LUX = {
+				exists = yes
+			}
+			has_war_with = FRA
+		}
+		bypass = {
+			HOL = {
+				exists = no
+			}
+			BEL = {
+				exists = no
+			}
+			LUX = {
+				exists = no
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = GER_strike_france
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_WESTWARD }
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = HOL
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = BEL
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = LUX
+			}
+		}
+	}	
+
+	focus = {
+		id = GER_influence_brazil
+		icon = GFX_goal_generic_brazil_military
+		prerequisite = { focus = GER_around_maginot }
+		available = {
+			BRA = {
+				exists = yes
+				NOT = {
+					is_in_faction_with = GER
+				}
+			}
+		}
+		bypass = {
+			BRA = {
+				exists = no
+				OR = {
+					has_government = fascism
+					is_in_faction_with = GER
+				}
+			}
+		}
+		x = -2
+		y = 1
+		relative_position_id = GER_around_maginot
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_WESTWARD }
+		completion_reward = {
+			BRA = {
+				add_timed_idea = {
+					idea = fascist_influence
+					days = 1095
+				}
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.1
+				}
+			}
+			unlock_decision_category_tooltip = GER_influence_in_the_americas
+
+		}
+	}	
+
+	focus = {
+		id = GER_mexican_revolution
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = GER_influence_brazil }
+		available = {
+			MEX = {
+				exists = yes
+				NOT = {
+					is_in_faction_with = GER
+				}
+			}
+		}
+		bypass = {
+			MEX = {
+				exists = no
+				OR = {
+					has_government = fascism
+					is_in_faction_with = GER
+				}
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = GER_influence_brazil
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_WESTWARD }
+		completion_reward = {
+			MEX = {
+				add_timed_idea = {
+					idea = fascist_influence
+					days = 1095
+				}
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.1
+				}
+			}
+			unlock_decision_category_tooltip = GER_mexican_revolution
+
+		}
+	}	
+
+	focus = {
+		id = GER_tannenbaum
+		icon = GFX_focus_attack_switzerland
+		prerequisite = { focus = GER_around_maginot }
+		available = {
+			FRA = {
+				has_capitulated = yes
+			}
+			SWI = {
+				exists = yes
+				NOT = {
+					is_in_faction_with = GER
+				}
+			}
+		}
+		bypass = {
+			SWI = {
+				exists = no
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = GER_around_maginot
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_WESTWARD }
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = SWI
+			}
+		}
+	}	
+
+	focus = {
+		id = GER_prep_sealion
+		icon = GFX_goal_GER_prep_sealion
+		prerequisite = { focus = GER_around_maginot }
+		available = {
+			ENG = {
+				exists = yes
+				NOT = {
+					is_in_faction_with = GER
+				}
+			}
+		}
+		bypass = {
+			ENG = {
+				exists = no
+				OR = {
+					has_government = fascism
+					is_in_faction_with = GER
+				}
+			}
+		}
+		x = 2
+		y = 1
+		relative_position_id = GER_around_maginot
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_WESTWARD }
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0 
+				uses = 2
+				category = naval_doctrine 
+			}
+			navy_experience = 25
+			
+		}
+	}	
+
+	focus = {
+		id = GER_execute_sealion
+		icon = GFX_focus_attack_britain
+		prerequisite = { focus = GER_prep_sealion }
+		available = {
+			ENG = {
+				exists = yes
+				NOT = {
+					is_in_faction_with = GER
+				}
+			}
+		}
+		bypass = {
+			ENG = {
+				exists = no
+				OR = {
+					has_government = fascism
+					is_in_faction_with = GER
+				}
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = GER_prep_sealion
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_WESTWARD }
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ENG
+			}
+			navy_experience = 25
+		}
+	}	
 
 }

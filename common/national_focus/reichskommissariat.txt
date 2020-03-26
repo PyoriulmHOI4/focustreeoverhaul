@@ -1,0 +1,53 @@
+focus_tree = {
+	id = reichskommissariat_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 25
+			tag = SLO
+		}
+	}
+
+	focus = {
+		id = RK_begin_resistance
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		x = 6
+		y = 0
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available_if_capitulated = yes
+		search_filters = {  }
+		completion_reward = {
+			add_timed_idea = {
+				idea = RK_resistance
+				days = 1095
+			}
+		}
+	}
+
+	focus = {
+		id = RK_united_against_oppression
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = RK_begin_resistance }
+		x = -3
+		y = 1
+		relative_position_id = RK_begin_resistance
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available_if_capitulated = yes
+		search_filters = {  }
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+}
