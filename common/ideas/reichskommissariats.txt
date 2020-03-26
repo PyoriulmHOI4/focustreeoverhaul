@@ -1,0 +1,27 @@
+ideas = {
+
+	country = {
+		german_ownership = {
+			
+			allowed = {
+				is_subject_of = GER
+			}
+
+			picture = German_Occupation
+			
+			modifier = {
+				conscription = 0.005
+				fascism_drift = 0.05
+				command_power_gain = 0.25
+				autonomy_gain = -5
+			}
+	
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	
+		
+		}
+	
+}

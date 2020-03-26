@@ -2596,3 +2596,5 @@
  GER_wehrmacht_primacy_desc:0 "The German government has chosen to prioritize the Wehrmacht instead of the SS."
  rally_under_hohenzollern:0 "Rally 'Round the New Reich"
  rally_under_hohenzollern_desc:0 "The people have been working around the clock to work for the House of Hohenzollern in an attempt to overthrow the Nazis and reestablish the Empire and producing propaganda against Hitler."
+ german_ownership:0 "German Occupation"
+ german_ownership_desc:0 "Following German occupation a reichskommissariat government was established the previous government was replaced with a Pro-German government"
