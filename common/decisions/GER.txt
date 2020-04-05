@@ -1899,3 +1899,88 @@ GER_mexican_revolution_category = {
 		
 	}
 }
+GER_spanish_civil_war = {
+	support_radical_right_in_spain = {
+		cost = 50
+		available = {
+			has_completed_focus = GER_common_republican_enemy
+		}
+		fire_only_once = yes
+		complete_effect = {
+			if = {
+    			limit = {
+        			has_dlc = "La Resistance"
+    			}
+    			SPA = {
+					add_timed_idea = {
+    					idea = fascist_influence2
+    					days = 180
+					}
+				}
+   				else = {
+        			D01 = {
+						add_timed_idea = {
+    						idea = fascist_influence2
+    						days = 180
+						}
+					}
+    			}
+			}
+		}
+	}
+	operation_rugen = {
+		available = {
+			has_completed_focus = GER_establish_condor_legion
+			if = {
+    			limit = {
+        			has_dlc = "La Resistance"
+    			}
+    			SPA = {
+					has_volunteers_amount_from = {
+    					tag = GER
+    					count > 0
+					}
+				}
+   				else = {
+        			D01 = {
+						has_volunteers_amount_from = {
+    						tag = GER
+    						count > 0
+						}
+					}
+    			}
+			}
+		}
+		fire_only_once = yes
+		complete_effect = {
+			air_experience = 20
+			add_tech_bonus = {
+    			bonus = 1
+    			uses = 1
+    			category = tactical_bomber
+			}
+			add_tech_bonus = {
+    			bonus = 1
+    			uses = 2
+    			category = strategic_destruction_tree
+			}
+		}
+	}
+	lessons_from_the_spain_campaign = {
+		available = {
+			has_completed_focus = GER_establish_condor_legion
+			has_global_flag = scw_over
+		}
+		fire_only_once = yes
+		complete_effect = {
+			army_experience = 35
+			air_experience = 80
+			navy_experience = 15
+			add_tech_bonus = {
+    			bonus = 1
+    			uses = 1
+    			category = mountaineers_tech
+			}
+		}
+	}
+}
