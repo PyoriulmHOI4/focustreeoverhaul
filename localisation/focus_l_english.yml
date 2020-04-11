@@ -1,4 +1,4 @@
-l_english:
+﻿l_english:
  WHILE_FOCUSING:0 "While focusing on this, there will be the following effects:\n$EFF$"
  generic_focus:0 "National Focus"
  army_effort:0 "Army Effort"
@@ -2285,6 +2285,11 @@ l_english:
  TREE_FILTER_TOGGLE:0 "§GClick§! to toggle showing of more filters"
  sirte_oil_developed:0 "Sirte Oil Fields Developed"
  ### custom
+ accept_demands:0 "If they §GAccept§! our demands:\n"
+ reject_demands:0 "If they §RReject§! our demands:\n"
+ accept_demands_italy:0 "If Italy §GAccept§! our demands:\n"
+ reject_demands_italy:0 "If Italy §RReject§! our demands:\n"
+ next_line:0 " \n"
  german_focus:0 "German Focus Tree"
  GER_rhineland:0 "Rhineland"
  GER_rhineland_desc:0 "Since the end of the Great War, the Rhineland has been a demilitarized zone and that has been enforced by France. With their attention turning away from it, it's time to go back in!"
@@ -2299,6 +2304,12 @@ l_english:
  GER_reassert_eastern_claims_desc:0 "The east is looking increasingly volatile. We fear that an alliance will rise up and seek to defeat our correct and superior ideology. We won't let this happen; we must take the Memel from Lithuania and assert our dominance over Poland."
  GER_alliance_italy:0 "Alliance with Italy"
  GER_alliance_italy_desc:0 "The Pact of Steel is a hypothetical bond between Germany and Italy that promised closer economic and militaristic ties between the two fascist powers of Europe. It's only looked like a dream for a long time but now is the time to make it reality."
+ GER_fight_italian_dream:0 "Fight the Italian Dream"
+ GER_fight_italian_dream_desc:0 ""
+ GER_slovenia_for_zara:0 "Slovenia for Zara"
+ GER_slovenia_for_zara_desc:0 ""
+ GER_slovenia_for_protection:0 "Slovenia for Protection"
+ GER_slovenia_for_protection_desc:0 ""
  GER_common_republican_enemy:0 "A Common Republican Enemy"
  GER_common_republican_enemy_desc:0 "With the Spanish Civil War well underway and the Iberian Peninsula dragged into chaos, now may be the time to strike a sense of German influence in the area. The Nationalists are a far right insurrectionist group that are closest to our ideals so if we can strike a good deal with them, we could lend them some of our spare resources to help their war effort..."
  GER_encourage_mussolini:0 "Encourage Mussolini"

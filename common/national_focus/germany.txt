@@ -1,4 +1,4 @@
-### search_filters = {FOCUS_FILTER_POLITICAL}
+﻿### search_filters = {FOCUS_FILTER_POLITICAL}
 ### search_filters = {FOCUS_FILTER_RESEARCH}
 ### search_filters = {FOCUS_FILTER_INDUSTRY}
 ### search_filters = {FOCUS_FILTER_STABILITY}
@@ -19,8 +19,8 @@ focus_tree = {
 	}
 
 	continuous_focus_position = {
-		x = 2000
-		y = 1000
+		x = 0
+		y = -200
 	}
 	
 	default = no
@@ -32,7 +32,7 @@ focus_tree = {
 	focus = {
 		id = GER_rhineland
 		icon = GFX_goal_GER_rhineland
-		x = 6
+		x = 20
 		y = 0
 		cost = 10
 
@@ -75,7 +75,7 @@ focus_tree = {
 			}
 			NOT = { has_idea = rhineland_challenge_met }
 		}
-		x = -5
+		x = -16
 		y = 1
 		relative_position_id = GER_rhineland
 		cost = 10
@@ -193,7 +193,8 @@ focus_tree = {
 		id = GER_alliance_italy
 		icon = GFX_goal_generic_ally_italy
 		prerequisite = { focus = GER_anschluss }
-		x = -2
+		mutually_exclusive = { focus = GER_fight_italian_dream }
+		x = -4
 		y = 1
 		relative_position_id = GER_anschluss
 		cost = 10
@@ -208,13 +209,244 @@ focus_tree = {
 			ITA = {
 				add_opinion_modifier = {
 			    	target = GER
-    				modifier = GER_pact_of_steel
+    				modifier = pact_of_steel_opinion
 				}
 			}
 			add_political_power = 50
 		}
-	}	
+	}
 
+	focus = {
+		id = GER_fight_italian_dream
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = GER_anschluss }
+		mutually_exclusive = { focus = GER_alliance_italy }
+		mutually_exclusive = { focus = GER_demand_slovenia }
+		x = -2
+		y = 1
+		relative_position_id = GER_anschluss
+		
+		cost = 3.6
+		
+		available = {
+			has_full_control_of_state = 153
+		}
+		
+		completion_reward = {
+			153 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 5
+					instant_build = yes
+				}
+			}
+		
+			add_tech_bonus = {
+				name = GER_ITA_prepare_to_cross_the_alps
+				bonus = 1
+				uses = 1
+				category = engineers_tech
+			}
+			add_tech_bonus = {
+				name = GER_ITA_prepare_to_cross_the_alps
+				bonus = 1
+				uses = 1
+				category = mountaineers_tech
+			}
+			add_tech_bonus = {
+				name = GER_ITA_prepare_to_cross_the_alps
+				bonus = 1
+				uses = 1
+				category = land_doctrine
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	focus = {
+		id = GER_slovenia_for_zara
+		icon = GFX
+		prerequisite = { focus = GER_fight_italian_dream }
+		mutually_exclusive = { focus = GER_slovenia_for_protection }
+		available = {
+			YUG = {
+				exists = yes
+				controls_state = 102
+				NOT = {
+					controls_state = 163
+				}
+			}
+			controls_state = 4
+			controls_state = 152
+			strength_ratio = {
+    			tag = ITA
+    			ratio > 1.25
+			}
+			ic_ratio = {
+    			tag = ITA
+    			ratio > 1.25
+			}
+		}
+		x = 3
+		y = 1
+		relative_position_id = GER_fight_italian_dream
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_ANSCHLUSS }
+		
+		completion_reward = {
+			YUG = {
+				country_event = {
+					id = 
+					days = 0
+				}
+			}
+			effect_tooltip = {
+				custom_effect_tooltip = next_line
+				custom_effect_tooltip = accept_demands
+				ITA = {
+					country_event = {
+						id = 
+						days = 0
+					}
+				}
+				transfer_state = 102
+				add_state_core = 102
+				GER = { add_to_faction = YUG }
+				add_war_support = 0.05
+				add_stability = 0.05
+				add_political_power = 100
+				custom_effect_tooltip = next_line
+				custom_effect_tooltip = reject_demands
+				create_wargoal = {
+    				type = annex_everything
+    				target = YUG
+				}
+				add_political_power = -50
+				custom_effect_tooltip = next_line
+				custom_effect_tooltip = accept_demands_italy
+				YUG = {
+					transfer_state = 163
+					add_state_core = 163
+				}
+				ITA = {
+					add_war_support = -0.05
+					add_stability = -0.05
+					add_political_power = -50
+				}
+				custom_effect_tooltip = next_line
+				custom_effect_tooltip = reject_demands_italy
+				YUG = {
+					add_state_claim = 163
+					add_state_core = 163
+				}
+				GER = {
+					add_war_support = -0.1
+					add_stability = -0.1
+					add_political_power = -200
+				}
+				create_wargoal = {
+    				type = annex_everything
+    				target = ITA
+				}
+			}
+		}
+	}
+	focus = {
+		id = GER_slovenia_for_protection
+		icon = GFX
+		prerequisite = { focus = GER_fight_italian_dream }
+		mutually_exclusive = { focus = GER_slovenia_for_zara }
+		available = {
+			YUG = {
+				exists = yes
+				controls_state = 102
+				NOT = {
+					controls_state = 163
+				}
+			}
+			controls_state = 4
+			controls_state = 152
+		}
+		x = 1
+		y = 1
+		relative_position_id = GER_fight_italian_dream
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_ANSCHLUSS }
+		completion_reward = {
+			YUG = {
+				country_event = {
+					id = 
+					days = 0
+				}
+			}
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = GER_demand_germanic_land
+		icon = GFX
+		prerequisite = { focus = GER_fight_italian_dream }
+		available = {
+			ITA = {
+				exists = yes
+				OR = {
+					controls_state = 39
+					controls_state = 736
+				}
+			}
+			controls_state = 4
+			controls_state = 152
+			strength_ratio = {
+    			tag = ITA
+    			ratio > 2
+			}
+			ic_ratio = {
+    			tag = ITA
+    			ratio > 1.5
+			}
+		}
+		x = -1
+		y = 1
+		relative_position_id = GER_fight_italian_dream
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_ANSCHLUSS }
+		completion_reward = {
+			ITA = {
+				country_event = {
+					id = 
+					days = 0
+				}
+			}
+		}
+	}
 	focus = {
 		id = GER_common_republican_enemy
 		icon = GFX#_goal_generic_ally_franco
@@ -244,7 +476,7 @@ focus_tree = {
 		bypass = {
 			has_global_flag = scw_over
 		}
-		x = 0
+		x = 6
 		y = 1
 		relative_position_id = GER_anschluss
 		cost = 5
@@ -498,6 +730,7 @@ focus_tree = {
 		id = GER_demand_slovenia
 		icon = GFX_goal_GER_take_slovenia
 		prerequisite = { focus = GER_anschluss }
+		mutually_exclusive = { focus = GER_fight_italian_dream }
 		available = {
 			YUG = {
 				exists = yes
