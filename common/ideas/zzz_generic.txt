@@ -101,7 +101,46 @@ ideas = {
 
 	# Special ones that can be applied on other countries through focus system.
 	country = {
-	
+		
+		buy_arms = {
+			
+			allowed = {
+				always = no
+			}
+			
+			removal_cost = -1
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = generic_production_bonus
+			
+			modifier = {
+				consumer_goods_factor = 0.05
+			}
+		}
+
+
+		sold_arms = {
+			
+			allowed = {
+				always = no
+			}
+			
+			removal_cost = -1
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = generic_production_bonus
+			
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+		}
+
 		nationalism = {
 			
 			allowed = {
