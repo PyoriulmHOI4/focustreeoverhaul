@@ -3,7 +3,8 @@ tags={
 	"Alternative History"
 	"National Focuses"
 	"Events"
+	"Ideologies"
 	"Gameplay"
 }
-name="Focus Tree Overhaul"
-supported_version="1.9.0"
+name="Thirty Years of Turmoil"
+supported_version="1.9.1"
