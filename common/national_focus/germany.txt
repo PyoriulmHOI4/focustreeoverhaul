@@ -1784,6 +1784,201 @@ focus_tree = {
 	}
 
 	focus = {
+		id = GER_JAP_nippon_lurgi_goshi_kk
+		icon = GFX_goal_generic_oil_refinery
+		prerequisite = { focus = GER_japan_friend }
+		
+		x = -1
+		y = 2
+		relative_position_id = GER_japan_friend
+
+		cost = 5
+
+		available_if_capitulated = yes
+		
+		available = {
+			JAP = {
+				NOT = { has_war_with = ROOT }
+				has_country_flag = japan_pal_germany
+			}
+		}
+
+		completion_reward = {
+			add_political_power = 150
+			
+			add_offsite_building = { type = industrial_complex level = 2 }
+		
+			537 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+				add_resource = { type = oil amount = 4 }	
+			}
+			610 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+			716 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = synthetic_refinery
+					level = 1
+					instant_build = yes
+				}
+			}
+			
+			JAP = {
+				add_tech_bonus = {
+					name = GER_JAP_nippon_lurgi_goshi_kk
+					bonus = 1
+					uses = 1
+					technology = excavation1
+					technology = excavation2
+					technology = excavation3
+					technology = excavation4
+					technology = excavation5
+					category = synth_resources
+				}
+			}
+			MAN = {
+				add_tech_bonus = {
+					name = GER_JAP_nippon_lurgi_goshi_kk
+					bonus = 1
+					uses = 1
+					technology = excavation1
+					technology = excavation2
+					technology = excavation3
+					technology = excavation4
+					technology = excavation5
+					category = synth_resources
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	focus = {
+		id = GER_JAP_military_technology_collaboration	
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = GER_japan_friend }
+		
+		x = 0
+		y = 3
+		relative_position_id = GER_japan_friend
+
+		cost = 5
+
+		available_if_capitulated = yes
+		
+		available = {
+			has_country_flag = japan_pal_germany
+			AND = {
+				country_exists = JAP
+				JAP = { is_puppet = no }
+				NOT = { has_war_with = JAP }
+			}
+		}
+
+		completion_reward = {		
+			army_experience = 25
+			air_experience = 25
+			navy_experience = 25
+			
+			add_tech_bonus = {
+				name = GER_JAP_military_technology_collaboration
+				bonus = 1
+				uses = 1
+				technology = cv_early_fighter
+				technology = cv_fighter1
+				technology = cv_fighter2
+				technology = cv_fighter3	
+			}
+			add_tech_bonus = {
+				name = GER_JAP_military_technology_collaboration
+				bonus = 1
+				uses = 1
+				technology = cv_naval_bomber1
+				technology = cv_naval_bomber2
+				technology = cv_naval_bomber3
+			}
+				
+			add_tech_bonus = {
+				name = GER_JAP_military_technology_collaboration
+				bonus = 1
+				uses = 1
+				category = naval_equipment
+			}
+				
+				
+			JAP = {
+				army_experience = 25
+				air_experience = 25
+				navy_experience = 25
+				
+				add_tech_bonus = {
+					name = GER_JAP_military_technology_collaboration
+					bonus = 1
+					uses = 1
+					category = armor
+				}
+					
+				add_tech_bonus = {
+					name = GER_JAP_military_technology_collaboration
+					bonus = 1
+					uses = 1
+					category = rocketry
+				}
+			}		
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	focus = {
+		id = GER_JAP_ribbentrop_oshima_pact
+		icon = GFX
+		prerequisite = { focus = GER_JAP_military_technology_collaboration }
+		prerequisite = { focus = GER_JAP_nippon_lurgi_goshi_kk }
+		
+		x = -1
+		y = 1
+		relative_position_id = GER_JAP_military_technology_collaboration
+
+		cost = 5
+
+		available_if_capitulated = yes
+		
+		available = {
+			has_country_flag = japan_pal_germany
+			AND = {
+				country_exists = JAP
+				JAP = { is_puppet = no }
+				NOT = { has_war_with = JAP }
+			}
+		}
+
+		completion_reward = {
+
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	focus = {
 		id = GER_demand_slovenia
 		icon = GFX_goal_GER_take_slovenia
 		prerequisite = { focus = GER_anschluss }
