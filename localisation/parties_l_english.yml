@@ -545,3 +545,9 @@
  YUN_communism_party_long:0 "Communist Party of China"
  MAN_fascism_party:0 "MX"
  MAN_fascism_party_long:0 "Manzhōuguó Xiéhehuì"
+ BAY_democratic_party:0 "CSU"
+ BAY_democratic_party_long:0 "Christlich-Soziale Union in Bayern"
+ BAY_fascism_party:0 "NSDAP
+ BAY_fascism_party_long:0 "Nationalsozialistische Deutsche Arbeiterpartei"
+ BAY_communism_party:0 "KPD"
+ BAY_communism_party:0 "Kommunistische Partei Deutschlands"

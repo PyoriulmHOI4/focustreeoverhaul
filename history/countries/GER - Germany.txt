@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 capital = 800
+=======
+﻿capital = 64
+>>>>>>> Stashed changes
 
 oob = "GER_1936"
 
