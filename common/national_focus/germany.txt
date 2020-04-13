@@ -42,12 +42,18 @@ focus_tree = {
 		bypass = {
 			42 = { is_demilitarized_zone = no }
 			51 = { is_demilitarized_zone = no }
+			797 = { is_demilitarized_zone = no }
+			798 = { is_demilitarized_zone = no }
+			799 = { is_demilitarized_zone = no }
 		}
 		available_if_capitulated = yes
 		search_filters = { GER_RHINELAND }
 		completion_reward = {
 			42 = { set_demilitarized_zone = no }
 			51 = { set_demilitarized_zone = no }
+			797 = { set_demilitarized_zone = no }
+			798 = { set_demilitarized_zone = no }
+			799 = { set_demilitarized_zone = no }
 			custom_effect_tooltip = GER_rhineland_ultimatum
 			add_political_power = 120
 			army_experience = 5
