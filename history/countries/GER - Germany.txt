@@ -1,4 +1,4 @@
-﻿capital = 64
+﻿capital = 801
 
 oob = "GER_1936"
 
