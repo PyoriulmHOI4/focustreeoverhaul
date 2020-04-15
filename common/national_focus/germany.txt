@@ -81,6 +81,15 @@ focus_tree = {
 			}
 			NOT = { has_idea = rhineland_challenge_met }
 		}
+		bypass = {
+			AUS = {
+				OR = {
+					exists = no
+					is_puppet = yes
+				}
+			}
+
+		}
 		x = -16
 		y = 1
 		relative_position_id = GER_rhineland
@@ -127,9 +136,8 @@ focus_tree = {
 				add_state_core = 152
 				add_state_core = 153
 				create_wargoal = {
-					type = take_state_focus
+					type = annex_everything
 					target = AUS
-					generator = { 4 152 153 }
 				}
 			}
 		}
@@ -405,9 +413,8 @@ focus_tree = {
 				custom_effect_tooltip = reject_demands
 				add_state_core = 188
 				create_wargoal = {
-					type = take_state_focus
+					type = annex_everything
 					target = LIT
-					generator = { 188 }
 				}
 				add_war_support = -0.025
 			}
@@ -583,9 +590,8 @@ focus_tree = {
 				custom_effect_tooltip = next_line
 				custom_effect_tooltip = reject_demands
 				create_wargoal = {
-					type = take_state_focus
+					type = annex_everything
 					target = YUG
-					generator = { 102 }
 				}
 				add_political_power = -50
 				custom_effect_tooltip = next_line
@@ -611,9 +617,8 @@ focus_tree = {
 					add_political_power = -200
 				}
 				create_wargoal = {
-					type = take_state_focus
+					type = annex_everything
 					target = ITA
-					generator = { 163 }
 				}
 			}
 		}
@@ -665,9 +670,8 @@ focus_tree = {
 				custom_effect_tooltip = next_line
 				custom_effect_tooltip = reject_demands
 				create_wargoal = {
-					type = take_state_focus
+					type = annex_everything
 					target = YUG
-					generator = { 102 }
 				}
 				add_political_power = -50
 				add_war_support = -0.025
@@ -743,9 +747,8 @@ focus_tree = {
 					add_political_power = 50
 				}
 				create_wargoal = {
-					type = take_state_focus
+					type = annex_everything
 					target = ITA
-					generator = { 39 736 }
 				}
 			}
 		}
@@ -1043,7 +1046,7 @@ focus_tree = {
 					has_capitulated = no
 					OR = {
 						has_government = fascism
-						has_government = neutrality
+						has_government = authoritarianism
 					}
 				}
    				else = {
@@ -1203,7 +1206,7 @@ focus_tree = {
 				original_tag = SPR
 				OR = {
 					has_government = fascism
-					has_government = neutrality 
+					has_government = authoritarianism 
 				}
 				has_volunteers_amount_from = {
 					tag = GER
@@ -1261,7 +1264,7 @@ focus_tree = {
 					has_capitulated = no
 					OR = {
 						has_government = fascism
-						has_government = neutrality
+						has_government = authoritarianism
 					}
 					NOT = { has_war_with = GER }
 					NOT = { is_in_faction_with = GER }
@@ -1343,17 +1346,16 @@ focus_tree = {
 		completion_reward = {
 			CHI = {
 				country_event = {
-					id = 
+					id = china.205
 					days = 0
 				}
 			}
 			effect_tooltip = {
 				custom_effect_tooltip = next_line
 				custom_effect_tooltip = accept_offer
-				event_target:WTT_current_china_leader = {
+				CHI = {
 					add_offsite_building = { type = arms_factory level = 2 }
 					add_opinion_modifier = { target = GER modifier = ger_chi_diplomacy_focus }
-					set_country_flag = GER_befriended_by_germany_flag
 				}
 				JAP = {
 					add_opinion_modifier = { target = GER modifier = supported_the_chinese }
@@ -1770,15 +1772,11 @@ focus_tree = {
 
 		ai_will_do = {
 			factor = 1
-			modifier = {
-				is_in_faction_with = JAP
-				factor = 0 #GER-sempai has already noticed you!
-			}
 		}	
 		completion_reward = {
 			JAP = {
 				country_event = {
-					id = 
+					id = japan.19
 					days = 0
 				}
 			}
@@ -1788,12 +1786,10 @@ focus_tree = {
 				JAP = {
 					add_opinion_modifier = { target = GER modifier = ger_jap_diplomacy_focus }
 				}
-				event_target:WTT_current_china_leader = {
+				CHI = {
 					add_opinion_modifier = { target = GER modifier = withdrew_advisors }
 					country_event = { id = china.3 hours = 6 }
 				}
-				custom_effect_tooltip = GER_japan_friend_tt
-				set_global_flag = falkenhausen_recalled
 				if = {
 					limit = {
 						has_dlc = "Waking the Tiger"
@@ -2049,6 +2045,14 @@ focus_tree = {
 				custom_effect_tooltip = accept_demands
 				transfer_state = 102
 				add_state_core = 102
+				ITA = {
+					transfer_state = 803
+					add_state_core = 803
+				}
+				HUN = {
+					transfer_state = 804
+					add_state_core = 804
+				}
 				add_war_support = 0.025
 				add_stability = 0.025
 				add_political_power = 100
@@ -2058,10 +2062,16 @@ focus_tree = {
 				}
 				custom_effect_tooltip = next_line
 				custom_effect_tooltip = reject_demands
+				add_state_core = 102
+				ITA = {
+					add_state_core = 803
+				}
+				HUN = {
+					add_state_core = 804
+				}
 				create_wargoal = {
-					type = take_state_focus
+					type = annex_everything
 					target = YUG
-					generator = { 102 }
 				}
 				add_political_power = -50
 				add_war_support = -0.025
@@ -2088,25 +2098,25 @@ focus_tree = {
 			HUN = {
 				country_event = {
 					id = germany.130
-					days = 0
+					days = 1
 				}
 			}
 			ITA = {
 				country_event = {
 					id = germany.131
-					days = 0
+					days = 1
 				}
 			}
 			ROM = {
 				country_event = {
 					id = germany.132
-					days = 0
+					days = 1
 				}
 			}
 			BUL = {
 				country_event = {
 					id = germany.133
-					days = 0
+					days = 1
 				}
 			}
 			add_political_power = 50
@@ -2483,9 +2493,8 @@ focus_tree = {
 				custom_effect_tooltip = next_line
 				custom_effect_tooltip = reject_demands
 				create_wargoal = {
-					type = take_state_focus
+					type = annex_everything
 					target = POL
-					generator = { 85 }
 				}
 			}
 		}
