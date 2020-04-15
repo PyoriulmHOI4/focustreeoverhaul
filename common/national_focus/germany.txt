@@ -5027,4 +5027,53 @@ focus_tree = {
 			GER = { add_to_faction = BRA }
 		}
 	}
+	focus = {
+		id = GER_testing
+		icon = GFX
+		x = 10
+		y = 15
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_WESTWARD }
+		completion_reward = {
+			GER = { 
+				set_state_controller = 102
+				set_state_controller = 107
+				set_state_controller = 108
+			}
+			ITA = {
+				set_state_controller = 803
+				set_state_controller = 805
+				annex_country = {
+    				target = ALB
+  					transfer_troops = no
+				}
+				set_state_controller = 806
+				set_state_controller = 105
+			}
+			BUL = {
+				set_state_controller = 106
+				set_state_controller = 807
+			}
+			ROM = {
+				set_state_controller = 764
+			}
+			HUN = {
+				set_state_controller = 45
+				set_state_controller = 804
+			}
+			CRO = {
+				set_state_controller = 109
+				set_state_controller = 103
+				set_state_controller = 104
+			}
+			puppet = YUG
+			puppet = CRO
+		}
+	}
 }
