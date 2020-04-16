@@ -120,6 +120,7 @@ ideologies = {
 			
 		}
 
+<<<<<<< HEAD
 	}
 
 socialism = {
@@ -168,6 +169,8 @@ socialism = {
 			
 		}
 
+=======
+>>>>>>> master
 	}
 
 	fascism = {
@@ -220,6 +223,7 @@ socialism = {
 		ai_fascist = yes # uses the fascist AI behaviour
 	}
 	
+<<<<<<< HEAD
 	monarchism = {
 	
 		types = {
@@ -269,6 +273,10 @@ socialism = {
 		ai_neutral = yes # 
 	}
 authoritarianism = {
+=======
+	
+neutrality = {
+>>>>>>> master
 	
 		types = {
 		

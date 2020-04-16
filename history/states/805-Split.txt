@@ -1,0 +1,30 @@
+state={
+	id=805
+	name="STATE_805" # Dalmatia
+	manpower = 161700
+
+	state_category = rural
+
+
+	history={
+		owner = YUG
+		victory_points = {
+			3924 3
+		}
+		buildings = {
+			infrastructure = 5
+			dockyard = 1
+			industrial_complex = 1
+			3924 = {
+				naval_base = 3
+			}
+		}
+		add_core_of = YUG
+		#add_claim_by = ITA #added by focus
+		add_core_of = CRO
+	}
+
+	provinces={
+		3924 11901
+	}
+}

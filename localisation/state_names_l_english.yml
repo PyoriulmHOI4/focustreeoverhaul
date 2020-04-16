@@ -802,3 +802,8 @@
  STATE_800:0 "North Schleswig"
  STATE_801:0 "West Beriln"
  STATE_802:0 "East Beriln"
+ STATE_803:0 "Ljubljana"
+ STATE_804:0 "Prekmurje"
+ STATE_805:0 "Split"
+ STATE_806:0 "Kosovo"
+ STATE_807:0 "Vojvodina"
