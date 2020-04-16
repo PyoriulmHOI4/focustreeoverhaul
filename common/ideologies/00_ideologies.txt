@@ -171,7 +171,6 @@ ideologies = {
 		ai_fascist = yes # uses the fascist AI behaviour
 	}
 	
-<<<<<<< HEAD
 	monarchism = {
 	
 		types = {
@@ -220,11 +219,8 @@ ideologies = {
 
 		ai_neutral = yes # 
 	}
+
 authoritarianism = {
-=======
-	
-neutrality = {
->>>>>>> master
 	
 		types = {
 		
