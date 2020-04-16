@@ -26,6 +26,10 @@ state= {
 			}
 		}
 		add_core_of = GER
+		1949.5.23 = {
+			owner = WGR
+			add_core_of = WGR 
+		}
 	}
 	provinces= {
 		6521
