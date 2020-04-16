@@ -119,7 +119,8 @@ ideologies = {
 		faction_modifiers = {
 			
 		}
-
+	}
+	
 	fascism = {
 	
 		types = {
