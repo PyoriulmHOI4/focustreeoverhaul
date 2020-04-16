@@ -2601,4 +2601,6 @@ l_english:
  german_ownership:0 "German Occupation"
  german_ownership_desc:0 "Following German occupation a reichskommissariat government was established the previous government was replaced with a Pro-German government"
  buy_arms:0 "Bought Arms"
+ buy_arms_desc:0 " "
  sold_arms:0 "Sold Arms"
+ sold_arms:0 " "

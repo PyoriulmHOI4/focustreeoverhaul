@@ -34,7 +34,7 @@ focus_tree = {
 		icon = GFX_goal_GER_rhineland
 		x = 20
 		y = 0
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -93,7 +93,7 @@ focus_tree = {
 		x = -16
 		y = 1
 		relative_position_id = GER_rhineland
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -178,7 +178,7 @@ focus_tree = {
 			is_puppet = yes
 		}
 		cancel_if_invalid = yes
-		cost = 10
+		cost = 2
 		ai_will_do = {
 			factor = 10
 		}	
@@ -382,7 +382,7 @@ focus_tree = {
 		x = 4
 		y = 1
 		relative_position_id = GER_rhineland
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 4
@@ -424,7 +424,7 @@ focus_tree = {
 	focus = {
 		id = GER_form_the_reichskommissariats
 		icon = GFX_focus_ger_reichskommisariats
-		cost = 10
+		cost = 1
 		prerequisite = { focus = GER_rhineland }
 		relative_position_id = GER_rhineland
 		x = -5
@@ -454,7 +454,7 @@ focus_tree = {
 		x = -4
 		y = 1
 		relative_position_id = GER_anschluss
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 4
@@ -1332,7 +1332,7 @@ focus_tree = {
 		x = -8
 		y = 1
 		relative_position_id = GER_rhineland
-		cost = 10
+		cost = 2
 		ai_will_do = {
 			factor = 0.5
 			modifier = {
@@ -1385,7 +1385,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_china_friend
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 0.5
 			modifier = {
@@ -1602,7 +1602,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = GER_china_friend
-		cost = 10
+		cost = 2
 		ai_will_do = {
 			factor = 0.5
 			modifier = {
@@ -1668,7 +1668,7 @@ focus_tree = {
 		x = 4
 		y = 1
 		relative_position_id = GER_china_friend
-		cost = 10
+		cost = 2
 		ai_will_do = {
 			factor = 0.5
 			modifier = {
@@ -1728,7 +1728,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = GER_china_military_modernization
-		cost = 10
+		cost = 1
 		ai_will_do = {
 			factor = 0.5
 			modifier = {
@@ -1766,7 +1766,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = GER_rhineland
-		cost = 10
+		cost = 2
 
 		available_if_capitulated = yes
 
@@ -2219,7 +2219,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_demand_sudetenland
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 1
@@ -2255,7 +2255,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_first_vienna_award
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 1
@@ -2512,7 +2512,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = GER_fate_of_czechoslovakia
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 1
@@ -2552,7 +2552,7 @@ focus_tree = {
 		x = 6
 		y = 1
 		relative_position_id = GER_rhineland
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 4
@@ -2695,7 +2695,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = GER_prep_poland
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 4
@@ -2776,7 +2776,7 @@ focus_tree = {
 		available_if_capitulated = no
 		search_filters = { GER_RHINELAND GER_REASSERT }
 		completion_reward = {
-			country_event = { id = }
+			country_event = { id = germany.138 }
 		}
 	}
 	focus = {
@@ -2960,9 +2960,6 @@ focus_tree = {
 		search_filters = { GER_RHINELAND GER_REASSERT }
 		completion_reward = {
 			add_political_power = 100
-			SOV = {
-				country_event = { id = }
-			}
 		}
 	}
 	focus = {
@@ -2987,7 +2984,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_closer_collaboration
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 0.01
 			modifier = {
@@ -3119,7 +3116,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = GER_soviet_ally
 		
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
@@ -3261,7 +3258,7 @@ focus_tree = {
 		x = 0
 		y = 3
 		relative_position_id = GER_prep_poland
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -3356,7 +3353,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = GER_danzig_for_slovakia
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -3418,7 +3415,7 @@ focus_tree = {
 		x = -3
 		y = 1
 		relative_position_id = GER_prep_strike_france
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -3544,7 +3541,7 @@ focus_tree = {
 		x = 2
 		y = 4
 		relative_position_id = GER_danzig_for_slovakia
-		cost = 10
+		cost = 2
 		bypass = {
 			OR = {
 				FRA = {
@@ -3586,7 +3583,7 @@ focus_tree = {
 		x = -7
 		y = 1
 		relative_position_id = GER_strike_france
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 10
@@ -3701,7 +3698,7 @@ focus_tree = {
 			
 		}
 		completion_reward = {
-			country_event = { id =  }
+			country_event = { id = germany.139 }
 			effect_tooltip = {
 				custom_effect_tooltip = next_line
 				custom_effect_tooltip = annex_event
@@ -3714,7 +3711,7 @@ focus_tree = {
 				custom_effect_tooltip = next_line
 				custom_effect_tooltip = threat_event
 				SWE = {
-					country_event = { id =  }
+					country_event = { id = germany.140 }
 				}
 				custom_effect_tooltip = next_line
 				custom_effect_tooltip = accept_demands
@@ -3774,7 +3771,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			FIN = {
-				country_event = { id =  }
+				country_event = { id = germany.141 }
 			}
 			effect_tooltip = {				
 				custom_effect_tooltip = next_line
@@ -3960,7 +3957,7 @@ focus_tree = {
 		x = -4
 		y = 1
 		relative_position_id = GER_around_maginot
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -4008,7 +4005,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_influence_brazil
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -4055,7 +4052,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_around_maginot
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 10
@@ -4738,7 +4735,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = GER_around_maginot
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -4768,7 +4765,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = GER_prep_sealion
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 4
@@ -4798,7 +4795,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_prep_sealion
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -4836,7 +4833,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = GER_prep_sealion
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -4922,7 +4919,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = GER_prep_sealion
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 4
@@ -4983,7 +4980,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_execute_sealion
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 4
@@ -5023,7 +5020,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = GER_mexican_revolution
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 4
@@ -5042,7 +5039,9 @@ focus_tree = {
 		x = 10
 		y = 15
 		cost = 10
-
+		available = {
+			always = false
+		}
 		ai_will_do = {
 			factor = 4
 		}
