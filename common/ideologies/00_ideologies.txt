@@ -303,7 +303,7 @@ ideologies = {
 			juche = {
 			}
 			
-			fosterism = {
+			national_syndicalism = {
 			}
 		}
 
