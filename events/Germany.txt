@@ -6626,9 +6626,10 @@ country_event = { #end italian dream
 			set_popularities = {
 				democratic = 10
 				fascism = 30
-				communism = 40
+				communism = 30
 				monarchism = 20
 				authoritarianism = 0
+				left_nationalism = 10
 			}
 			load_oob = "LOV"
 		}
@@ -6646,10 +6647,11 @@ country_event = { #end italian dream
 			add_state_core = 115
 			set_popularities = {
 				democratic = 15
-				fascism = 35
+				fascism = 30
 				communism = 20
 				monarchism = 25
 				authoritarianism = 5
+				left_nationalism = 5
 			}
 
 			load_oob = "TSI"
@@ -6751,8 +6753,9 @@ country_event = { #end italian dream
 				democratic = 20
 				fascism = 20
 				communism = 30
-				monarchism = 25
+				monarchism = 20
 				authoritarianism = 5
+				left_nationalism = 5
 			}
 
 		}
