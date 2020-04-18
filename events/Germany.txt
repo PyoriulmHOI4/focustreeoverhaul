@@ -6492,3 +6492,459 @@ country_event = { #finland help vs soviets
 		}
 	}
 }
+country_event = { #Italy say no
+	id = germany.142
+	title = germany.142.t
+	desc = germany.142.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #oof
+		name = germany.142.a
+		ai_chance = {
+			base = 20
+		}
+		add_war_support = -0.10
+		add_stability = -0.05
+		add_political_power = -100
+		add_state_core = 39
+		add_state_core = 736
+		ITA = {
+			add_war_support = 0.10
+			add_stability = 0.05
+			add_political_power = 50
+		}
+		create_wargoal = {
+			type = annex_everything
+			target = ITA
+		}
+	}
+}
+
+country_event = { #italy demand germanic land
+	id = germany.143
+	title = germany.143.t
+	desc = germany.143.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #give the land
+		name = germany.143.a
+		ai_chance = {
+			base = 20
+		}
+		GER = {
+			transfer_state = 39
+			transfer_state = 736
+			add_state_core = 39
+			add_state_core = 736
+			add_war_support = 0.10
+			add_stability = 0.05
+			add_political_power = 150
+		}
+		ITA = {
+			add_war_support = -0.10
+			add_stability = -0.05
+			add_political_power = -200
+			add_popularity = {
+    			ideology = fascism
+    			popularity = -0.05
+			}
+			add_popularity = {
+    			ideology = communism 
+    			popularity = 0.05
+			}
+		}
+	}
+	option = { #fuck off nazis
+		name = germany.143.a
+		ai_chance = {
+			base = 5
+		}
+		GER = {
+			country_event = { id = germany.142 }
+		}
+	}
+}
+
+country_event = { #end italian dream
+	id = germany.144
+	title = germany.144.t
+	desc = germany.144.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #give the land
+		name = germany.144.a
+		ai_chance = {
+			base = 20
+		}
+		GER = {
+			add_political_power = 150
+			add_war_support = 0.1	
+			transfer_state = 114
+			transfer_state = 164
+		}
+		LBA = {
+			transfer_state = 451 
+			transfer_state = 450 
+			transfer_state = 449 
+			transfer_state = 448 
+			transfer_state = 661 
+			transfer_state = 662 
+			transfer_state = 663 
+			transfer_state = 273 
+			add_manpower = 30000
+			load_oob = "LBA"
+			448 = {
+				add_building_construction = {
+   					type = arms_factory
+    				level = 1
+   		 			instant_build = yes
+				}
+				add_building_construction = {
+   					type = industrial_complex
+    				level = 1
+   		 			instant_build = yes
+				}
+			}
+		}
+		
+		GER = {
+			set_autonomy = { target = LBA autonomy_state = autonomy_reichskommissariat }
+			set_autonomy = { target = LOV autonomy_state = autonomy_reichskommissariat }
+			GER = { add_to_faction = TSI }
+		}
+		LOV = {
+			transfer_state = 159
+			add_state_core = 159
+			transfer_state = 160
+			add_state_core = 160
+			set_popularities = {
+				democratic = 10
+				fascism = 30
+				communism = 40
+				monarchism = 20
+				authoritarianism = 0
+			}
+			load_oob = "LOV"
+		}
+		GER = {
+			set_autonomy = { target = TSI autonomy_state = autonomy_satellite }
+		}
+		TSI = {
+			transfer_state = 808
+			add_state_core = 808
+			transfer_state = 117
+			add_state_core = 117
+			transfer_state = 156
+			add_state_core = 156
+			transfer_state = 115
+			add_state_core = 115
+			set_popularities = {
+				democratic = 15
+				fascism = 35
+				communism = 20
+				monarchism = 25
+				authoritarianism = 5
+			}
+
+			load_oob = "TSI"
+			start_civil_war = {
+				ideology = communism
+				size = 0.5
+				only_own_territory = no
+			}
+		}
+		YUG = {
+			add_political_power = 150
+			add_war_support = 0.05
+			
+			if = {
+				limit = {
+					ALB = {
+						exists = yes
+						is_guaranteed_by = ITA
+					}
+				}
+				add_state_core = 44	
+				annex_country = {
+					target = ALB
+					transfer_troops = yes
+				}
+			}
+					
+			if = {
+				limit = {
+					ALB = {
+						exists = no
+					}
+					44 = {
+						is_owned_and_controlled_by = ITA
+					}
+				}
+						
+				transfer_state = 44
+				add_state_core = 44
+			}
+		}
+		GER = {
+			set_autonomy = { target = ETH autonomy_state = autonomy_reichskommissariat }
+		}
+		ETH = {
+			add_political_power = 300
+			add_war_support = 0.10	
+			transfer_state = 271
+			transfer_state = 550
+			transfer_state = 559
+			add_state_core = 550	
+			add_state_core = 559
+			load_oob = "‏‏ETH_end_italian_dream"
+		}
+		
+		LUX = {
+			annex_country = {
+   				target = ITA
+   				transfer_troops = no
+			}
+			release = ITA
+		}
+		GER = {
+			set_autonomy = { target = ITA autonomy_state = autonomy_reichskommissariat }
+		}
+		ITA = {
+			add_stability = -0.15
+			add_war_support = -0.2
+			kill_country_leader = yes
+			add_popularity = {
+    			ideology = fascism
+    			popularity = -0.1
+			}
+			add_popularity = {
+    			ideology = communism 
+    			popularity = 0.1
+			}
+			load_oob = "ITA_civil_war"
+			start_civil_war = {
+				ideology = communism
+				size = 0.7
+				only_own_territory = no
+			}
+			create_country_leader = {
+				name = "Italo Balbo"
+				desc = ""
+				picture = ""
+				ideology = fascism_ideology
+				traits = {
+		
+				}
+			}
+			remove_ideas = vittoria_mutilata
+			add_ideas = {
+				AST_great_depression_1
+				failed_fascist_state
+			}
+			set_popularities = {
+				democratic = 20
+				fascism = 20
+				communism = 30
+				monarchism = 25
+				authoritarianism = 5
+			}
+
+		}
+	}
+	option = { #fuck off nazis
+		name = germany.144.a
+		ai_chance = {
+			base = 5
+		}
+		GER = {
+			country_event = { id = germany.142 }
+		}
+	}
+}
+
+country_event = { #slovenia for zara (yug)
+	id = germany.145
+	title = germany.145.t
+	desc = germany.145.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #give the land
+		name = germany.145.a
+		ai_chance = {
+			base = 20
+		}
+		ITA = {
+			country_event = {
+				id = germany.146
+				days = 0
+			}
+		}
+		GER = {
+			transfer_state = 102
+			add_state_core = 102
+			transfer_state = 803
+			add_state_core = 803
+			add_to_faction = YUG
+			add_war_support = 0.05
+			add_stability = 0.05
+			add_political_power = 100
+		}
+		if = {
+    		limit = {
+       			original_tag = HUN
+       			is_in_faction_with = GER
+   			}   
+    		transfer_state = 804
+			add_state_core = 804
+		}
+		else = {
+   			GER = {
+   				transfer_state = 804
+				add_state_core = 804
+   			}
+   			HUN = {
+   				add_state_core = 804
+   			}
+		}
+	}
+	option = { #fuck off nazis
+		name = germany.145.a
+		ai_chance = {
+			base = 5
+		}
+		GER = {
+			create_wargoal = {
+				type = annex_everything
+				target = YUG
+			}
+			add_political_power = -50
+		}
+	}
+}
+
+country_event = { #slovenia for zara (ITA)
+	id = germany.146
+	title = germany.146.t
+	desc = germany.146.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #give the land
+		name = germany.146.a
+		ai_chance = {
+			base = 20
+		}
+		YUG = {
+			transfer_state = 163
+			add_state_core = 163
+		}
+		ITA = {
+			add_war_support = -0.05
+			add_stability = -0.05
+			add_political_power = -50
+			add_popularity = {
+    			ideology = fascism
+    			popularity = -0.05
+			}
+			add_popularity = {
+    			ideology = communism 
+    			popularity = 0.05
+			}
+		}
+	}
+	option = { #fuck off serbs
+		name = germany.146.a
+		ai_chance = {
+			base = 5
+		}
+		YUG = {
+			add_state_claim = 163
+			add_state_core = 163
+			create_wargoal = {
+				type = annex_everything
+				target = ITA
+			}
+		}
+		GER = {
+			add_war_support = -0.1
+			add_stability = -0.1
+			add_political_power = -200
+			create_wargoal = {
+				type = annex_everything
+				target = ITA
+			}
+		}
+	}
+}
+
+country_event = { #slovenia for protection (yug)
+	id = germany.147
+	title = germany.147.t
+	desc = germany.147.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #give the land
+		name = germany.147.a
+		ai_chance = {
+			base = 20
+		}
+		ITA = {
+			country_event = {
+				id = 146
+				days = 0
+			}
+		}
+		GER = {
+			transfer_state = 102
+			add_state_core = 102
+			transfer_state = 803
+			add_state_core = 803
+			add_to_faction = YUG
+			add_war_support = 0.05
+			add_stability = 0.05
+			add_political_power = 100
+		}
+		if = {
+    		limit = {
+       			original_tag = HUN
+       			is_in_faction_with = GER
+   			}   
+    		transfer_state = 804
+			add_state_core = 804
+		}
+		else = {
+   			GER = {
+   				transfer_state = 804
+				add_state_core = 804
+   			}
+   			HUN = {
+   				add_state_core = 804
+   			}
+		}
+	}
+	option = { #fuck off nazis
+		name = germany.147.a
+		ai_chance = {
+			base = 5
+		}
+		GER = {
+			create_wargoal = {
+				type = annex_everything
+				target = YUG
+			}
+			add_political_power = -50
+			add_war_support = -0.025
+		}
+	}
+}

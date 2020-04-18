@@ -1,0 +1,29 @@
+division_template = {
+	name = "Militia"
+
+	division_names_group = LOV_Inf_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+	}
+}
+
+units = {
+	division = {
+		name = "1. Militia"
+		location = 3780
+		division_template = "Militia"
+	}
+	division = {
+		name = "2. Militia"
+		location = 3780
+		division_template = "Militia"
+	}
+	division = {
+		name = "3. Militia"
+		location = 11584
+		division_template = "Militia"
+	}
+}

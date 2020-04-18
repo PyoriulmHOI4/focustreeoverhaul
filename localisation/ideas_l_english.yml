@@ -2604,3 +2604,6 @@
  buy_arms_desc:0 " "
  sold_arms:0 "Sold Arms"
  sold_arms_desc:0 " "
+ commie_threat:0 "Communist threat"
+ commie_threat_desc:0 "Communist threat"
+ failed_fascist_state:0 "Failed Fascist State"
