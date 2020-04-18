@@ -1,8 +1,8 @@
-capital = 159
+capital = 117
 
-oob = "LOV"
+oob = "TSI"
 
-set_fuel_ratio = 0.5
+set_fuel_ratio = 0.7
 
 # Starting tech
 set_technology = {
@@ -26,7 +26,7 @@ set_technology = {
 	strategic_bomber1 = 1
 	CAS1 = 1
 	naval_bomber1 = 1
-
+	
 	formation_flying = 1
 	synth_oil_experiments = 1
 	fuel_silos = 1

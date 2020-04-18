@@ -6615,6 +6615,7 @@ country_event = { #end italian dream
 		GER = {
 			set_autonomy = { target = LBA autonomy_state = autonomy_reichskommissariat }
 			set_autonomy = { target = LOV autonomy_state = autonomy_reichskommissariat }
+			GER = { add_to_faction = TSI }
 		}
 		LOV = {
 			transfer_state = 159
@@ -6629,6 +6630,30 @@ country_event = { #end italian dream
 				authoritarianism = 0
 			}
 			load_oob = "LOV"
+		}
+		TSI = {
+			transfer_state = 808
+			add_state_core = 808
+			transfer_state = 117
+			add_state_core = 117
+			transfer_state = 156
+			add_state_core = 156
+			transfer_state = 115
+			add_state_core = 115
+			set_popularities = {
+				democratic = 15
+				fascism = 35
+				communism = 20
+				monarchism = 25
+				authoritarianism = 5
+			}
+
+			load_oob = "TSI"
+			start_civil_war = {
+				ideology = communism
+				size = 0.5
+				only_own_territory = no
+			}
 		}
 		YUG = {
 			add_political_power = 150
@@ -6671,6 +6696,7 @@ country_event = { #end italian dream
 			transfer_state = 559
 			add_state_core = 550	
 			add_state_core = 559
+			load_oob = "ETH"
 		}
 		GER = {
 			set_autonomy = { target = ETH autonomy_state = autonomy_reichskommissariat }
@@ -6690,14 +6716,8 @@ country_event = { #end italian dream
 			start_civil_war = {
 				ruling_party = communism
 				ideology = ROOT
-				size = 0.15
+				size = 0.6
 				only_own_territory = no
-				capital = 159
-				states = { 
-					2 117 156 115 114 448 661 449 662 273
-				}
-				keep_unit_leaders = {
-				}
 			}
 		}
 	}

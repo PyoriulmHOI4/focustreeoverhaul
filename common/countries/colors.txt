@@ -65,6 +65,10 @@ LOV = {
 	color = rgb { 64 64 64 }
 	color_ui = rgb { 128 128 128 }
 }
+TSI= {
+	color = rgb { 242 205 94 }
+	color_ui = rgb { 255 255 122 }
+}
 ROM = {
 	color = rgb { 215 196 72 }
 	color_ui = rgb { 255 255 120 }
