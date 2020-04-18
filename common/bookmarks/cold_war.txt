@@ -1,6 +1,6 @@
 bookmarks = {
 	bookmark = {
-		name = "Cold War"
+		name = "Iron Curtain"
 		desc = "GATHERING_STORM_DESC"
 		date = 1950.1.1.12
 		picture = "GFX_select_date_1936"
