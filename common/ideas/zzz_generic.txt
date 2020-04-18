@@ -120,6 +120,24 @@ ideas = {
 			}
 		}
 
+		failed_fascist_state = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			picture = generic_fascism_banned
+			
+			modifier = {
+				stability_factor = -0.1
+				war_support_factor = -0.1
+			}
+		}	
 		buy_arms = {
 			
 			allowed = {
