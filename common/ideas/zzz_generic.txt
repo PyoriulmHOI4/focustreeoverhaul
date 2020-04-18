@@ -101,7 +101,25 @@ ideas = {
 
 	# Special ones that can be applied on other countries through focus system.
 	country = {
-		
+		commie_threat = {
+			
+			allowed = {
+				always = no
+			}
+			
+			removal_cost = -1
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			picture = generic_communism_drift_bonus
+			
+			modifier = {
+				stability_factor = -0.1
+			}
+		}
+
 		buy_arms = {
 			
 			allowed = {

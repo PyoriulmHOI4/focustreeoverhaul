@@ -61,6 +61,10 @@ ITA = {
 	color = rgb { 67 127 63 }
 	color_ui = rgb { 87 165 82 }
 }
+LOV = {
+	color = rgb { 64 64 64 }
+	color_ui = rgb { 128 128 128 }
+}
 ROM = {
 	color = rgb { 215 196 72 }
 	color_ui = rgb { 255 255 120 }
