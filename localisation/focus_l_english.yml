@@ -1,4 +1,4 @@
-﻿l_english:
+l_english:
  WHILE_FOCUSING:0 "While focusing on this, there will be the following effects:\n$EFF$"
  generic_focus:0 "National Focus"
  army_effort:0 "Army Effort"
@@ -2413,7 +2413,7 @@
  GER_peace_the_states:0 "Peace With the States"
  GER_peace_the_states_desc:0 "With Britain's capitulation the United States now have no real reason to fight. A peace with them would be the smartest decision for us both."
  GER_strike_the_states:0 "Strike the States"
- GER_strike_the_states:0 "With Latin America secured, we can finally strike at the last bastion of Western defiance, the United States. We will crush them into the dust, and erase all traces of their decadent and degenerate culture from the face of the Earth. All the future generations of Nordamerika will know will be the glory of the Reich-im-Amerika!"
+ GER_strike_the_states_desc:0 "With Latin America secured, we can finally strike at the last bastion of Western defiance, the United States. We will crush them into the dust, and erase all traces of their decadent and degenerate culture from the face of the Earth. All the future generations of Nordamerika will know will be the glory of the Reich-im-Amerika!"
  GER_focus_east:0 "Focus On The East"
  GER_focus_east_desc:0 "The successes of the Molotov-Ribbentrop Pact in our invasion of Poland have come to light in the Reichstag. Despite it being essentially a betrayal of our foreign policy against communists and the far left, it has come to Germany's eyes that an alliance with the Soviet Union may be feasible and beneficial. Hitler's command has looked into it and right now, we need to make a decision."
  GER_operation_barbarossa:0 "Operation Barbarossa"
