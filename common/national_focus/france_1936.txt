@@ -39,7 +39,7 @@ focus_tree = {
 
     focus = {
         id = FRA_metropole
-        icon = GFX_focus_construct_civilian
+        icon = GFX_goal_generic_construct_civilian
         prerequisite = { focus = FRA_french_industry }
         x = -4
         y = 1
