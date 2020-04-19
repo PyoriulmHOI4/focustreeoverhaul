@@ -19,9 +19,10 @@ focus_tree = {
     ##### INDUSTRY #####
     ####################
 
+    # L'Industrie Français
     focus = {
         id = FRA_french_industry
-        icon = GFX_focus_fra_devalue_the_franc
+        icon = GFX_focus_FRA_devalue_the_franc
         x = 6
         y = 0
         cost = 5
@@ -37,6 +38,7 @@ focus_tree = {
         }
     }
 
+    # The Metropole
     focus = {
         id = FRA_metropole
         icon = GFX_goal_generic_construct_civilian
@@ -56,7 +58,8 @@ focus_tree = {
             add_stability = 0.05
         }
     }
-
+    
+    # Develop Metropolitan France
     focus = {
         id = FRA_develop_metropolitan_france
         icon = GFX_focus_generic_industry_1
@@ -73,66 +76,22 @@ focus_tree = {
         available_if_capitulated = no
         search_filters = { FOCUS_FILTER_INDUSTRY }
         completion_reward = {
-            any_state = {
-                if = {
-                    limit = {
-                        is_core_of = FRA
-                        is_owned_by = FRA
-                    }
-                    add_extra_state_shared_building_slots = 2
+            random_owned_controlled_state = {
+                limit = {
+                    is_core_of = ROOT
                 }
+                add_extra_state_shared_building_slots = 2
             }
-            any_state = {
-                if = {
-                    limit = {
-                        is_core_of = FRA
-                        is_owned_by = FRA
-                    }
-                    add_extra_state_shared_building_slots = 2
+            random_owned_controlled_state = {
+                limit = {
+                    is_core_of = ROOT
                 }
+                add_extra_state_shared_building_slots = 2
             }
         }
     }
 
-    focus = {
-        id = FRA_develop_metropolitan_france
-        icon = GFX_focus_generic_industry_1
-        prerequisite = { focus = FRA_metropole }
-        x = 0
-        y = 1
-        relative_position_id = FRA_metropole
-        cost = 10
-
-        ai_will_do = {
-            factor = 1
-        }
-
-        available_if_capitulated = no
-        search_filters = { FOCUS_FILTER_INDUSTRY }
-        completion_reward = {
-            any_state = {
-                if = {
-                    limit = {
-                        is_core_of = FRA
-                        is_owned_by = FRA
-                    }
-                    add_extra_state_shared_building_slots = 2
-                    set_state_flag = FRA_industrial_expansion_target
-                }
-            }
-            any_state = {
-                if = {
-                    limit = {
-                        is_core_of = FRA
-                        is_owned_by = FRA
-                    }
-                    add_extra_state_shared_building_slots = 2
-                    set_state_flag = FRA_industrial_expansion_target
-                }
-            }
-        }
-    }
-
+    # The Champion of Europe
     focus = {
         id = FRA_champions
         icon = GFX_focus_generic_industry_3
@@ -149,30 +108,26 @@ focus_tree = {
         available_if_capitulated = no
         search_filters = { FOCUS_FILTER_INDUSTRY }
         completion_reward = {
-            any_state = {
-                if = {
-                    limit = {
-                        has_state_flag = FRA_industrial_expansion_target
-                    }
-                    add_extra_state_shared_building_slots = 2
-                    add_building_construction = {
-                        type = industrial_complex
-                        level = 10
-                        instant_build = yes
-                    }
+            random_owned_controlled_state = {
+                limit = {
+                    is_core_of = ROOT
+                    has_state_flag = FRA_colonial_industry_target
+                }
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
                 }
             }
-            any_state = {
-                if = {
-                    limit = {
-                        has_state_flag = FRA_industrial_expansion_target
-                    }
-                    add_extra_state_shared_building_slots = 2
-                    add_building_construction = {
-                        type = industrial_complex
-                        level = 10
-                        instant_build = yes
-                    }
+            random_owned_controlled_state = {
+                limit = {
+                    is_core_of = ROOT
+                    has_state_flag = FRA_colonial_industry_target
+                }
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
                 }
             }
         }
