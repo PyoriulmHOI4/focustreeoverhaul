@@ -2284,7 +2284,8 @@
  benghazi_oil_developed: "Benghazi Oil Fields Developed"
  TREE_FILTER_TOGGLE:0 "§GClick§! to toggle showing of more filters"
  sirte_oil_developed:0 "Sirte Oil Fields Developed"
- ### custom
+ ### CUSTOM
+ ### GENERAL TOOLTIPS
  accept_demands:0 "If they §GAccept§! our demands:\n"
  accept_offer:0 "If they §GAccept§! our offer:\n"
  reject_demands:0 "If they §RReject§! our demands:\n"
@@ -2302,7 +2303,7 @@
  transfer_libya:0 "Become owner and controller of §YLibya§!."
  event_will_have_following_effects:0 "This event will have following §GEffects§!:\n"
  next_line:0 " \n"
- german_focus:0 "German Focus Tree"
+ ### GERMANY
  GER_rhineland:0 "Rhineland"
  GER_rhineland_desc:0 "Since the end of the Great War, the Rhineland has been a demilitarized zone and that has been enforced by France. With their attention turning away from it, it's time to go back in!"
  GER_rhineland_ultimatum:0 "§RThe remilitarization may be reversed if you are confronted and back down.§!\n"
@@ -2412,3 +2413,12 @@
  GER_capture_desc:0 "Capture Thälmann"
  GER_SOV_panzerschule_kama:0 "Panzerschule Kama"
  GER_against_the_unbeatable:0 "Against the Unbeatable"
+ ### FRANCE
+ FRA_french_industry:0 "L'industrie Français"
+ FRA_french_industry_desc:0 "With the fascists in control of some of our eastern neighbors and turmoil flying around us, it's clear that another war, possibly deadlier than the last one, is inevitable. A nation like ours will not be able to weather the coming storm without a strong enough industry to be able to cope with the difficulties of war. We need to develop one now."
+ FRA_metropole:0 "The Metropole"
+ FRA_metropole_desc:0 "Our industry still needs rapid development to be able to push out the way we intend it to. A popular decision will be to improve the industrial front of our European holdings before we try and launch our programs and plans out to the rest of the globe."
+ FRA_develop_metropolitan_france:0 "Develop Metropolitan France"
+ FRA_develop_metropolitan_france_desc:0 "According to the people, La Métropole will always come first to the government. We should prioritize all our efforts and labour to be able to set up a more powerful workforce on the mainland and a great start would be to improve our infrastructure to allow for faster troop movement and deployment and to establish more jobs for the future."
+ FRA_champions:0 "The Champion of Europe"
+ FRA_champions_desc:0 "Our nation will need a stronger industrial presence back at home. We have absolutely no shortage of laborers and workers and we can call up many to help us in the factories. One issue; we don't have enough factories. We need to make more."
