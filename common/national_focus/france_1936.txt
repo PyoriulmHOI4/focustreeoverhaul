@@ -1,0 +1,59 @@
+focus_tree = {
+    id = focus_france_1936
+    country = {
+        base = 0
+        modifier = {
+            add = 20
+            tag = FRA
+        }
+    }
+
+    continuous_focus_position = {
+		x = 0
+		y = -200
+	}
+
+    default = no
+
+    ####################
+    ##### INDUSTRY #####
+    ####################
+
+    focus = {
+        id = FRA_french_industry
+        icon = GFX_focus_fra_devalue_the_franc
+        x = 6
+        y = 0
+        cost = 5
+
+        ai_will_do = {
+            factor = 2
+        }
+
+        available_if_capitulated = no
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        completion_reward = {
+            stability_factor = 0.05
+        }
+    }
+
+    focus = {
+        id = FRA_metropole
+        icon = GFX_focus_construct_civilian
+        prerequisite = { focus = FRA_french_industry }
+        x = -4
+        y = 1
+        relative_position_id = FRA_french_industry
+        cost = 5
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available_if_capitulated = no
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        completion_reward = {
+            stability_factor = 0.05
+        }
+    }
+}
