@@ -2388,7 +2388,7 @@ l_english:
  GER_JAP_military_technology_collaboration:0 "Japanese-German Military Collaboration"
  GER_JAP_military_technology_collaboration_desc:0 "Both us and the Japanese have advanced technology. Maybe we could share that technology and give each-other a little boost."
  GER_JAP_ribbentrop_oshima_pact:0 "Ribbentrop-Ōshima Pact"
- GER_JAP_ribbentrop_oshima_pact:0 "Japan has become a new valuable ally. They're making groundbreaking advancements in China, they have a navy to be reckoned with, and it's in our best interests to make sure we don't get in each-others way."
+ GER_JAP_ribbentrop_oshima_pact_desc:0 "Japan has become a new valuable ally. They're making groundbreaking advancements in China, they have a navy to be reckoned with, and it's in our best interests to make sure we don't get in each-others way."
  GER_prep_strike_france:0 "Prepare To Strike"
  GER_prep_strike_france_desc:0 "The time's ripe to attack France. They can't be allowed to build up their army and industry any longer!"
  GER_back_home:0 "Back Home"
