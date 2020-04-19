@@ -3,7 +3,7 @@ focus_tree = {
     country = {
         base = 0
         modifier = {
-            add = 20
+            add = 50
             tag = FRA
         }
     }
@@ -33,7 +33,7 @@ focus_tree = {
         available_if_capitulated = no
         search_filters = { FOCUS_FILTER_INDUSTRY }
         completion_reward = {
-            stability_factor = 0.05
+            add_stability = 0.05
         }
     }
 
@@ -53,7 +53,7 @@ focus_tree = {
         available_if_capitulated = no
         search_filters = { FOCUS_FILTER_INDUSTRY }
         completion_reward = {
-            stability_factor = 0.05
+            add_stability = 0.05
         }
     }
 
