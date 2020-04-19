@@ -1,0 +1,131 @@
+division_template = {
+	name = "Militia"
+
+	division_names_group = TSI_Inf_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Special Forces"
+
+	division_names_group = TSI_Inf_02
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	support = {
+	 	engineer = { x = 0 y = 0 }
+        artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+
+units = {
+	division = {
+		name = "Special Forces"
+		location = 6788
+		division_template = "Special Forces"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "Special Forces"
+		location = 6788
+		division_template = "Special Forces"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "1. Militia"
+		location = 6788
+		division_template = "Militia"
+	}
+	division = {
+		name = "2. Militia"
+		location = 6780
+		division_template = "Militia"
+	}
+	division = {
+		name = "3. Militia"
+		location = 6973
+		division_template = "Militia"
+	}
+	division = {
+		name = "4. Militia"
+		location = 6606
+		division_template = "Militia"
+	}
+	division = {
+		name = "5. Militia"
+		location = 782
+		division_template = "Militia"
+	}
+	division = {
+		name = "6. Militia"
+		location = 9907
+		division_template = "Militia"
+	}
+	division = {
+		name = "7. Militia"
+		location = 11833
+		division_template = "Militia"
+	}
+	division = {
+		name = "8. Militia"
+		location = 6875
+		division_template = "Militia"
+	}
+	division = {
+		name = "9. Militia"
+		location = 9750
+		division_template = "Militia"
+	}
+	division = {
+		name = "10. Militia"
+		location = 3885
+		division_template = "Militia"
+	}
+	division = {
+		name = "11. Militia"
+		location = 9879
+		division_template = "Militia"
+	}
+	division = {
+		name = "12. Militia"
+		location = 11889
+		division_template = "Militia"
+	}
+	division = {
+		name = "13. Militia"
+		location = 9924
+		division_template = "Militia"
+	}
+	division = {
+		name = "13. Militia"
+		location = 6875
+		division_template = "Militia"
+	}
+	division = {
+		name = "14. Militia"
+		location = 9750
+		division_template = "Militia"
+	}
+	division = {
+		name = "15. Militia"
+		location = 3885
+		division_template = "Militia"
+	}
+	division = {
+		name = "16. Militia"
+		location = 9879
+		division_template = "Militia"
+	}
+}

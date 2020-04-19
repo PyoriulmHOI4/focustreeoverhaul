@@ -6653,13 +6653,14 @@ country_event = { #end italian dream
 				authoritarianism = 5
 				left_nationalism = 5
 			}
-
-			load_oob = "TSI"
+			
 			start_civil_war = {
 				ideology = communism
 				size = 0.5
 				only_own_territory = no
+				states = { 115 156 }
 			}
+			
 		}
 		YUG = {
 			add_political_power = 150
@@ -6729,12 +6730,14 @@ country_event = { #end italian dream
     			ideology = communism 
     			popularity = 0.1
 			}
-			load_oob = "ITA_civil_war"
+			add_ideas = AST_great_depression_1
 			start_civil_war = {
 				ideology = communism
 				size = 0.7
 				only_own_territory = no
+				states = { 158 161 162 }
 			}
+			load_oob = "ITA_GER_civil_war"
 			create_country_leader = {
 				name = "Italo Balbo"
 				desc = ""
@@ -6745,10 +6748,7 @@ country_event = { #end italian dream
 				}
 			}
 			remove_ideas = vittoria_mutilata
-			add_ideas = {
-				AST_great_depression_1
-				failed_fascist_state
-			}
+			add_ideas = failed_fascist_state
 			set_popularities = {
 				democratic = 20
 				fascism = 20
@@ -6756,8 +6756,66 @@ country_event = { #end italian dream
 				monarchism = 20
 				authoritarianism = 5
 				left_nationalism = 5
+			}	
+		}
+		#every_other_country = {
+		#	limit = {
+		#		original_tag = ITA
+		#		has_government = communism 
+		#	}
+		#	
+		#}
+		every_other_country = {
+			limit = {
+				original_tag = ITA
+				has_government = communism 
 			}
-
+			load_oob = "ITA_Commies"
+		}
+		every_other_country = {
+			limit = {
+				original_tag = TSI
+				has_government = communism 
+			}
+			load_oob = "TSI_Commies"
+			add_equipment_to_stockpile = {
+    			type = infantry_equipment
+    			amount = 800
+    			producer = SOV
+			}
+			add_equipment_to_stockpile = {
+    			type = support_equipment
+    			amount = 200
+    			producer = SOV
+			}
+			add_equipment_to_stockpile = {
+    			type = artillery_equipment
+    			amount = 150
+    			producer = SOV
+			}
+		}
+		TSI = {
+			load_oob = "TSI"
+			add_equipment_to_stockpile = {
+    			type = infantry_equipment
+    			amount = 1000
+    			producer = GER
+			}
+			add_equipment_to_stockpile = {
+    			type = support_equipment
+    			amount = 300
+    			producer = GER
+			}
+			add_equipment_to_stockpile = {
+    			type = artillery_equipment
+    			amount = 250
+    			producer = GER
+			}
+			add_equipment_to_stockpile = {
+    			type = fighter_equipment
+    			amount = 50
+    			producer = GER
+			}
 		}
 	}
 	option = { #fuck off nazis

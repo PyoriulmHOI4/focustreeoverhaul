@@ -112,6 +112,7 @@ set_popularities = {
 
 add_ideas = {
 	AST_great_depression_1
+	commie_threat
 }
 
 create_country_leader = {

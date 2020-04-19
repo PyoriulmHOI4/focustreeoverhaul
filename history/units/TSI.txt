@@ -1,0 +1,114 @@
+division_template = {
+	name = "Militia"
+
+	division_names_group = TSI_Inf_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "Monarchist Volunteers"
+
+	division_names_group = TSI_Inf_02
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	support = {
+	 	engineer = { x = 0 y = 0 }
+        artillery = { x = 0 y = 1 }
+	}
+	is_locked = yes
+}
+division_template = {
+	name = "Infanterie-Division (mot.)"
+
+	division_names_group = TSI_MOT_01
+
+	regiments = {
+		motorized = { x = 0 y = 0 }
+	    motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+	}
+	support = {
+        mot_recon = { x = 0 y = 0 }
+	 	engineer = { x = 0 y = 1 }
+        artillery = { x = 0 y = 2 }
+	}
+	is_locked = yes
+}
+units = {
+	division = {
+		name = "German Infanterie-Division (mot.)"
+		location = 819
+		division_template = "Infanterie-Division (mot.)"
+		start_experience_factor = 1
+	}
+	division = {
+		name = "Monarchist Volunteers"
+		location = 819
+		division_template = "Monarchist Volunteers"
+		start_experience_factor = 0.8
+	}
+	division = {
+		name = "1. Militia"
+		location = 819
+		division_template = "Militia"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "2. Militia"
+		location = 6831
+		division_template = "Militia"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "3. Militia"
+		location = 3968
+		division_template = "Militia"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "4. Militia"
+		location = 6972
+		division_template = "Militia"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "5. Militia"
+		location = 6843
+		division_template = "Militia"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "6. Militia"
+		location = 3968
+		division_template = "Militia"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "7. Militia"
+		location = 3968
+		division_template = "Militia"
+		start_experience_factor = 0.3
+	}
+	division = {
+		name = "8. Militia"
+		location = 6843
+		division_template = "Militia"
+		start_experience_factor = 0.3
+	}
+}
