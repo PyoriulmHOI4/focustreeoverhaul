@@ -132,4 +132,123 @@ focus_tree = {
             }
         }
     }
+
+    # The Empire Worldwide
+    focus = {
+        id = FRA_the_empire_worldwide
+        icon = GFX_goal_FRA_the_empire_worldwide
+        prerequisite = { focus = FRA_french_industry }
+        x = 0
+        y = 1
+        relative_position_id = FRA_french_industry
+        cost = 5
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available_if_capitulated = no
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        completion_reward = {
+            every_state = {
+                limit = {
+                    is_owned_by = FRA
+                    NOT = {
+                        is_core_of = FRA
+                    }
+                }
+                add_compliance = 10
+            }
+        }
+    }
+
+    # Invest in Algeria
+    focus = {
+        id = FRA_invest_algeria
+        icon = GFX_focus_generic_industry_1
+        prerequisite = { focus = FRA_the_empire_worldwide }
+        x = -2
+        y = 1
+        relative_position_id = FRA_the_empire_worldwide
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available_if_capitulated = no
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        completion_reward = {
+            random_owned_controlled_state = {
+                limit = {
+                    state = 459
+                    state = 460
+                    state = 513
+                }
+                add_extra_state_shared_building_slots = 2
+                add_state_flag = FRA_colonial_industry_target
+                add_state_flag = FRA_industrial_expansion_target
+            }
+            random_owned_controlled_state = {
+                limit = {
+                    state = 459
+                    state = 460
+                    state = 513
+                }
+                add_extra_state_shared_building_slots = 2
+                add_state_flag = FRA_colonial_industry_target
+                add_state_flag = FRA_industrial_expansion_target
+            }
+        }
+    }
+
+    # Invest in West Africa
+    focus = {
+        id = FRA_invest_west_africa
+        icon = GFX_focus_generic_industry_1
+        prerequisite = { focus = FRA_invest_algeria }
+        x = 0
+        y = 1
+        relative_position_id = FRA_invest_algeria
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available_if_capitulated = no
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        completion_reward = {
+            random_owned_controlled_state = {
+                limit = {
+                    state = 272
+                    state = 280
+                    state = 556
+                    state = 779
+                    state = 778
+                    state = 781
+                    state = 776
+                    state = 777
+                }
+                add_extra_state_shared_building_slots = 2
+                add_state_flag = FRA_colonial_industry_target
+                add_state_flag = FRA_industrial_expansion_target
+            }
+            random_owned_controlled_state = {
+                limit = {
+                    state = 272
+                    state = 280
+                    state = 556
+                    state = 779
+                    state = 778
+                    state = 781
+                    state = 776
+                    state = 777
+                }
+                add_extra_state_shared_building_slots = 2
+                add_state_flag = FRA_colonial_industry_target
+                add_state_flag = FRA_industrial_expansion_target
+            }
+        }
+    }
 }

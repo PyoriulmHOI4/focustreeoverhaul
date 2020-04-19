@@ -1694,4 +1694,9 @@ spriteTypes = {
 		texturefile = "gfx/interface/goals/goal_GER_rally_under_hohenzollern.dds"			
 	}
 
+	SpriteType = {
+		name = "GFX_goal_FRA_the_empire_worldwide"
+		texturefile = "gfx/interface/goals/goal_FRA_the_empire_worldwide.dds"			
+	}
+
 }
