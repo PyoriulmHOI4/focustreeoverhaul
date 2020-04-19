@@ -1,4 +1,4 @@
-﻿l_english:
+l_english:
  ### FOCUSES
  FRA_french_industry:0 "L'industrie Français"
  FRA_french_industry_desc:0 "With the fascists in control of some of our eastern neighbors and turmoil flying around us, it's clear that another war, possibly deadlier than the last one, is inevitable. A nation like ours will not be able to weather the coming storm without a strong enough industry to be able to cope with the difficulties of war. We need to develop one now."
@@ -6,3 +6,5 @@
  FRA_metropole_desc:0 "Our industry still needs rapid development to be able to push out the way we intend it to. A popular decision will be to improve the industrial front of our European holdings before we try and launch our programs and plans out to the rest of the globe."
  FRA_develop_metropolitan_france:0 "Develop Metropolitan France"
  FRA_develop_metropolitan_france_desc:0 "According to the people, La Métropole will always come first to the government. We should prioritize all our efforts and labour to be able to set up a more powerful workforce on the mainland and a great start would be to improve our infrastructure to allow for faster troop movement and deployment and to establish more jobs for the future."
+ FRA_champions:0 "The Champion of Europe"
+ FRA_champions_desc:0 "Our nation will need a stronger industrial presence back at home. We have absolutely no shortage of laborers and workers and we can call up many to help us in the factories. One issue; we don't have enough factories. We need to make more."

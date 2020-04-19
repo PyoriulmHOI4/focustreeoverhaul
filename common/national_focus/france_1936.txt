@@ -117,6 +117,7 @@ focus_tree = {
                         is_owned_by = FRA
                     }
                     add_extra_state_shared_building_slots = 2
+                    set_state_flag = FRA_industrial_expansion_target
                 }
             }
             any_state = {
@@ -126,6 +127,52 @@ focus_tree = {
                         is_owned_by = FRA
                     }
                     add_extra_state_shared_building_slots = 2
+                    set_state_flag = FRA_industrial_expansion_target
+                }
+            }
+        }
+    }
+
+    focus = {
+        id = FRA_champions
+        icon = GFX_focus_generic_industry_3
+        prerequisite = { focus = FRA_develop_metropolitan_france }
+        x = 0
+        y = 1
+        relative_position_id = FRA_develop_metropolitan_france
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available_if_capitulated = no
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        completion_reward = {
+            any_state = {
+                if = {
+                    limit = {
+                        has_state_flag = FRA_industrial_expansion_target
+                    }
+                    add_extra_state_shared_building_slots = 2
+                    add_building_construction = {
+                        type = industrial_complex
+                        level = 10
+                        instant_build = yes
+                    }
+                }
+            }
+            any_state = {
+                if = {
+                    limit = {
+                        has_state_flag = FRA_industrial_expansion_target
+                    }
+                    add_extra_state_shared_building_slots = 2
+                    add_building_construction = {
+                        type = industrial_complex
+                        level = 10
+                        instant_build = yes
+                    }
                 }
             }
         }
