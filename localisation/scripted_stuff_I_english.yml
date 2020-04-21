@@ -1,0 +1,3 @@
+l_english:
+ us_or_puppet_controlled_desc:0 "Is controled by [ROOT.GetFlag]§H[ROOT.GetName]§! or our puppet."
+ us_or_puppet_or_allies_controlled_desc:0 "Is controled by [ROOT.GetFlag]§H[ROOT.GetName]§! or by any other nation with whom we are in faction."

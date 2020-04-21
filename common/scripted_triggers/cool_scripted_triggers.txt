@@ -1,0 +1,28 @@
+	us_or_puppet_controlled = {
+
+		custom_trigger_tooltip = {
+			tooltip = us_or_puppet_controlled_desc
+			
+			controller = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+	}
+
+	us_or_puppet_or_allies_controlled = {
+	
+		custom_trigger_tooltip = {
+			tooltip = us_or_puppet_or_allies_controlled_desc
+			
+			controller = {
+				OR = {
+					tag = ROOT
+					is_in_faction_with = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+	}

@@ -18,10 +18,7 @@ focus_tree = {
 		}
 	}
 
-	continuous_focus_position = {
-		x = 0
-		y = -200
-	}
+	continuous_focus_position = { x = 50 y = 2000 }
 	
 	default = no
 
@@ -32,7 +29,7 @@ focus_tree = {
 	focus = {
 		id = GER_rhineland
 		icon = GFX_goal_GER_rhineland
-		x = 20
+		x = 30
 		y = 0
 		cost = 5
 
@@ -90,7 +87,7 @@ focus_tree = {
 			}
 
 		}
-		x = -16
+		x = -21
 		y = 1
 		relative_position_id = GER_rhineland
 		cost = 5
@@ -451,7 +448,7 @@ focus_tree = {
 		icon = GFX_goal_generic_ally_italy
 		prerequisite = { focus = GER_anschluss }
 		mutually_exclusive = { focus = GER_fight_italian_dream }
-		x = -4
+		x = -6
 		y = 1
 		relative_position_id = GER_anschluss
 		cost = 1
@@ -472,14 +469,975 @@ focus_tree = {
 			add_political_power = 50
 		}
 	}
+	focus = {
+		id = GER_support_ITA_claims
+		icon = GFX_goal_generic_ally_italy
+		prerequisite = { focus = GER_alliance_italy }
+		x = -1
+		y = 1
+		relative_position_id = GER_alliance_italy
+		cost = 1
 
+		ai_will_do = {
+			factor = 4
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_ANSCHLUSS }
+		completion_reward = {
+			ITA = {
+				add_ideas = german_support
+			}
+			add_political_power = 50
+		}
+	}
+	focus = {
+		id = GER_ITA_total_cooperation
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = GER_alliance_italy }
+
+		x = -3
+		y = 1
+		relative_position_id = GER_alliance_italy
+		
+		cost = 5
+		
+		available = {
+			ITA = {
+				is_in_faction_with = ROOT
+			}
+		}
+		
+		completion_reward = {
+			army_experience = 25
+			air_experience = 25
+			navy_experience = 25
+		
+			add_tech_bonus = {
+				name = GER_ITA_total_cooperation
+				bonus = 1
+				uses = 1
+				category = naval_doctrine
+			}
+			add_tech_bonus = {
+				name = GER_ITA_total_cooperation
+				bonus = 1
+				uses = 1
+				category = mountaineers_tech
+				category = marine_tech
+				category = para_tech
+			}
+			
+			if = {
+				limit = {
+					NOT = {
+						is_in_tech_sharing_group = GER_ITA_total_cooperation
+					}
+				}
+				
+				add_to_tech_sharing_group = GER_ITA_total_cooperation
+			}
+			random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}	
+				}
+				random_owned_controlled_state = {
+					limit = {
+					free_building_slots = {
+							building = arms_factory 
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory 
+						level = 2
+						instant_build = yes
+					}
+				}
+			ITA = {
+				army_experience = 25
+				air_experience = 25
+				navy_experience = 25
+			
+				add_tech_bonus = {
+					name = GER_ITA_total_cooperation
+					bonus = 1
+					uses = 1
+					category = armor
+				}
+				add_tech_bonus = {
+					name = GER_ITA_total_cooperation
+					bonus = 1
+					uses = 1
+					category = land_doctrine
+				}
+				add_tech_bonus = {
+					name = GER_ITA_total_cooperation
+					bonus = 1
+					uses = 1
+					category = mountaineers_tech
+					category = marine_tech
+					category = para_tech
+				}
+				
+				add_to_tech_sharing_group = GER_ITA_total_cooperation
+
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}	
+				}
+				random_owned_controlled_state = {
+					limit = {
+					free_building_slots = {
+							building = arms_factory 
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory 
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 2
+		}
+	}
+
+	focus = {
+		id = GER_failed_once_again
+		icon = GFX_focus_generic_italy_first
+		prerequisite = { focus = GER_alliance_italy }
+		
+		x = 0
+		y = 3
+		relative_position_id = GER_alliance_italy
+		
+		cost = 5
+
+		available_if_capitulated = no
+		
+		available = {
+			ITA  = {
+				has_war = yes
+				surrender_progress > 0.35
+				is_in_faction_with = GER
+				strength_ratio = { tag = GER ratio < 0.5 }
+			}
+		}
+		
+		completion_reward = {
+			add_stability = -0.05
+		
+			
+			if = {
+				limit = {
+					ITA = {
+						has_full_control_of_state = 39
+					}
+				}
+				transfer_state = 39
+				add_state_core = 39
+			}
+			if = {
+				limit = {
+					ITA = {
+						has_full_control_of_state = 803
+					}
+				}
+				transfer_state = 803
+				add_state_core = 803
+			}
+			if = {
+				limit = {
+					ITA = {
+						has_full_control_of_state = 163
+					}
+				}
+				transfer_state = 163
+			}
+			if = {
+				limit = {
+					ITA = {
+						has_full_control_of_state = 736
+					}
+				}
+				transfer_state = 736
+			}
+			if = {
+				limit = {
+					ITA = {
+						has_full_control_of_state = 805
+					}
+				}
+				transfer_state = 805
+			}
+			
+			ITA = {
+				add_stability = -0.1
+				add_war_support = -0.2
+				add_ideas = failed_fascist_state
+				transfer_navy = {
+					target = GER
+				}
+			}
+			
+			set_autonomy = { target = ITA autonomy_state = autonomy_reichsprotectorate }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	focus = {
+		id = GER_desert_fox
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = GER_alliance_italy focus = GER_fight_italian_dream }
+		x = 3
+		y = 1
+		relative_position_id = GER_alliance_italy
+		
+		cost = 3.6
+		
+		available = {
+
+			custom_trigger_tooltip = {
+				tooltip = GER_erwin_rommels_afrikakorps_condi
+				
+				any_state = {
+					us_or_puppet_or_allies_controlled = yes
+					
+					is_on_continent = africa 
+				}
+			}
+		}
+		
+		completion_reward = {
+			add_war_support = 0.025
+			
+			army_experience = 25
+		
+			random_army_leader = {
+				limit = { 
+					has_id = 4 
+				}
+				
+				add_skill_level = 1
+				
+				add_attack = 2
+				add_logistics = 2
+				add_defense = 1
+				add_planning = 1
+				
+				add_unit_leader_trait = brilliant_strategist				
+				add_unit_leader_trait = desert_fox
+			}
+			
+			custom_effect_tooltip = GER_erwin_rommels_afrikakorps_tooltip
+			add_equipment_to_stockpile = {
+				type = medium_tank_equipment
+				amount = 600
+				producer = GER
+			}
+			hidden_effect = {
+				division_template = {
+					name = "Deutsches Afrikakorps"
+					regiments = {
+						medium_armor = { x = 0 y = 0 }
+						medium_armor = { x = 0 y = 1 }
+						medium_armor = { x = 0 y = 2 }
+						medium_armor = { x = 0 y = 3 }
+						medium_armor = { x = 0 y = 4 }
+						motorized = { x = 1 y = 0 }
+						motorized = { x = 1 y = 1 }
+						motorized = { x = 1 y = 2 }
+						motorized = { x = 1 y = 3 }
+						motorized = { x = 1 y = 4 }
+					}
+					support = { 
+						signal_company = { x = 0 y = 0 }
+						mot_recon = { x = 0 y = 1 }
+						logistics_company = { x = 0 y = 2}
+						artillery = { x = 0 y = 3 }
+					}
+					
+					priority = 2
+				}
+					
+				random_state = {
+					limit = {
+						us_or_puppet_or_allies_controlled = yes
+					
+						is_on_continent = africa 
+						
+						is_coastal = yes
+						is_island_state = no
+					}
+					
+					create_unit = { 
+						division = "name = \"1. Afrikakorps-Division\" division_template = \"Deutsches Afrikakorps\" start_experience_factor = 0.75" 
+						owner = ROOT
+					}
+					create_unit = { 
+						division = "name = \"2. Afrikakorps-Division\" division_template = \"Deutsches Afrikakorps\" start_experience_factor = 0.75" 
+						owner = ROOT
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	focus = {
+		id = GER_ITA_support_mare_nostrum
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = GER_alliance_italy }
+		mutually_exclusive = { focus = GER_agypten_deutschland }
+		
+		x = 2
+		y = 2
+		relative_position_id = GER_alliance_italy
+		
+		cost = 5
+
+		available_if_capitulated = yes
+
+		available = {
+			ITA = {
+				exists = yes
+				is_in_faction_with = ROOT
+			}
+			
+			custom_trigger_tooltip = {
+				tooltip = GER_ITA_support_mare_nostrum_TRIG
+				
+				OR = {
+						GER = { controls_state = 452 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 452
+						}
+					}
+					OR = {
+						GER = { controls_state = 447 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 447
+						}
+					}
+					OR = {
+						GER = { controls_state = 446 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 446
+						}
+					}
+					OR = {
+						GER = { controls_state = 456 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 456
+						}
+					}
+					OR = {
+						GER = { controls_state = 457 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 457
+						}
+					}
+					OR = {
+						GER = { controls_state = 551 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 551
+						}
+					}
+					OR = {
+						GER = { controls_state = 549 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 549
+						}
+					}
+					OR = {
+						GER = { controls_state = 453 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 453
+						}
+					}
+			}
+		}
+		
+		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						GER = { controls_state = 452 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 452
+						}
+					}
+				}
+				ITA = { transfer_state = 452 }
+			}
+			if = {
+				limit = {
+					OR = {
+						GER = { controls_state = 447 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 447
+						}
+					}
+				}
+				ITA = { transfer_state = 447 }
+			}
+			if = {
+				limit = {
+					OR = {
+						GER = { controls_state = 446 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 446
+						}
+					}
+				}
+				ITA = { transfer_state = 446 }
+			}
+			if = {
+				limit = {
+					OR = {
+						GER = { controls_state = 456 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 456
+						}
+					}
+				}
+				ITA = { transfer_state = 456 }
+			}
+			if = {
+				limit = {
+					OR = {
+						GER = { controls_state = 457 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 457
+						}
+					}
+				}
+				ITA = { transfer_state = 457 }
+			}
+			if = {
+				limit = {
+					OR = {
+						GER = { controls_state = 551 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 551
+						}
+					}
+				}
+				ITA = { transfer_state = 551 }
+			}
+			if = {
+				limit = {
+					OR = {
+						GER = { controls_state = 549 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 549
+						}
+					}
+				}
+				ITA = { transfer_state = 549 }
+			}
+			if = {
+				limit = {
+					OR = {
+						GER = { controls_state = 453 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 453
+						}
+					}
+				}
+				ITA = { transfer_state = 453 }
+			}
+			if = {
+				limit = {
+					OR = {
+						GER = { controls_state = 552 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 552
+						}
+					}
+				}
+				ITA = { transfer_state = 552 }
+			}
+			if = {
+				limit = {
+					OR = {
+						GER = { controls_state = 767 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 767
+						}
+					}
+				}
+				ITA = { transfer_state = 767 }
+			}
+			if = {
+				limit = {
+					OR = {
+						GER = { controls_state = 454 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 454
+						}
+					}
+				}
+				ITA = { transfer_state = 454 }
+			}
+			if = {
+				limit = {
+					OR = {
+						GER = { controls_state = 455 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 455
+						}
+					}
+				}
+				ITA = { transfer_state = 455 }
+			}
+			if = {
+				limit = {
+					OR = {
+						GER = { controls_state = 269 }
+						any_other_country = {
+							is_puppet_of = GER
+							controls_state = 269
+						}
+					}
+				}
+				ITA = { transfer_state = 269 }
+			}
+			else = {
+				custom_effect_tooltip = GER_ITA_support_mare_nostrum_EXPL
+			}
+		}
+	}
+	focus = {
+		id = GER_agypten_deutschland
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = GER_alliance_italy focus = GER_fight_italian_dream }
+		mutually_exclusive = { focus = GER_ITA_agypten_for_italy }
+		
+		x = 4
+		y = 2
+		relative_position_id = GER_alliance_italy
+		
+		cost = 5
+
+		available_if_capitulated = yes
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = GER_agypten_deutschland_TRIG
+				
+				OR = {
+					GER = { controls_state = 453 }
+					any_other_country = {
+						is_puppet_of = GER
+						controls_state = 453
+					}
+				}
+				OR = {
+					GER = { controls_state = 452 }
+					any_other_country = {
+						is_puppet_of = GER
+						controls_state = 452
+					}
+				}
+				OR = {
+					GER = { controls_state = 447 }
+					any_other_country = {
+						is_puppet_of = GER
+						controls_state = 447
+					}
+				}
+				OR = {
+					GER = { controls_state = 446 }
+					any_other_country = {
+						is_puppet_of = GER
+						controls_state = 446
+					}
+				}
+				OR = {
+					GER = { controls_state = 456 }
+					any_other_country = {
+						is_puppet_of = GER
+						controls_state = 456
+					}
+				}
+				OR = {
+					GER = { controls_state = 457 }
+					any_other_country = {
+						is_puppet_of = GER
+						controls_state = 457
+					}
+				}
+				OR = {
+					GER = { controls_state = 551 }
+					any_other_country = {
+						is_puppet_of = GER
+						controls_state = 551
+					}
+				}
+				OR = {
+					GER = { controls_state = 549 }
+					any_other_country = {
+						is_puppet_of = GER
+						controls_state = 549
+					}
+				}
+				OR = {
+					GER = { controls_state = 767 }
+					any_other_country = {
+						is_puppet_of = GER
+						controls_state = 767
+					}
+				}
+			}
+		}
+		
+		completion_reward = {
+			release = EGY
+		
+			EGY = {
+				transfer_state = 453
+				transfer_state = 452
+				transfer_state = 447
+				transfer_state = 446
+				transfer_state = 456
+				transfer_state = 457
+				transfer_state = 551
+				transfer_state = 549
+				transfer_state = 552
+				transfer_state = 767
+
+
+				add_state_core = 551
+				add_state_core = 767
+				add_state_core = 549
+				inherit_technology = GER
+			}
+			
+			set_autonomy = { target = EGY autonomy_state = autonomy_reichskommissariat }
+		}
+	}
+	
+	focus = {
+		id = GER_claims_over_mittelafrika
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = GER_agypten_deutschland focus = GER_ITA_support_mare_nostrum }
+		
+		x = -1
+		y = 1
+		relative_position_id = GER_agypten_deutschland
+		
+		cost = 3.6
+		
+		available = {
+			is_puppet = no 
+			NOT = { has_completed_focus = GER_new_colonial_empire }
+		}
+
+		completion_reward = {
+			add_threat = 3
+		
+			add_political_power = 50
+			add_war_support = 0.05
+			
+			set_autonomy = { target = MIA autonomy_state = autonomy_reichskommissariat }
+		
+			MIA = {
+				add_political_power = 150
+				add_war_support = 0.01
+				custom_effect_tooltip = MIA_afrika_core
+				hidden_effect = {
+					add_state_core = 773
+					add_state_core = 558
+					add_state_core = 776
+					add_state_core = 777
+					add_state_core = 781
+					add_state_core = 515
+					add_state_core = 775
+					add_state_core = 774
+					add_state_core = 660
+					add_state_core = 772
+					add_state_core = 539
+					add_state_core = 295
+					add_state_core = 718
+					add_state_core = 538
+					add_state_core = 768
+					add_state_core = 769
+					add_state_core = 548
+					add_state_core = 547
+					add_state_core = 546
+					add_state_core = 796
+					add_state_core = 540
+					add_state_core = 541
+					add_state_core = 771
+					add_state_core = 770
+					add_state_core = 544
+					add_state_core = 545
+					add_state_core = 542
+					add_state_core = 543
+					add_state_core = 708
+					add_state_core = 706
+					add_state_core = 275
+					add_state_core = 681
+					add_state_core = 719
+				}	
+			}
+		}
+		
+		ai_will_do = {
+			factor = 2
+		}
+	}
+	
+	focus = {
+		id = GER_establish_mittelafrika
+		icon = GFX_goal_tfv_saf_support_german_coup
+		prerequisite = { focus = GER_claims_over_mittelafrika  }
+		
+		x = 0
+		y = 1
+		relative_position_id = GER_claims_over_mittelafrika
+		
+		cost = 5
+
+		available_if_capitulated = yes
+
+		available = {
+			is_puppet = no
+			
+			custom_trigger_tooltip = {
+				tooltip = GER_establish_mittelafrika_TRIG 
+
+				any_state = {
+					us_or_puppet_controlled = yes
+					is_core_of = MIA
+				}
+				MIA = {
+					inherit_technology = GER
+				}
+			}
+		}	
+	
+		completion_reward = {
+		
+			effect_tooltip = {
+				custom_effect_tooltip = GER_Mittelafrika_EXPL
+			}
+			every_state = { 
+    			limit = { us_or_puppet_controlled = yes  is_core_of = MIA }
+   				MIA = { transfer_state = PREV }
+			}
+				
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	focus = {
+		id = GER_develop_african_wasteland
+		icon = GFX_focus_generic_africa_infrastructure
+		prerequisite = { focus = GER_establish_mittelafrika  }
+		
+		x = 0
+		y = 1
+		relative_position_id = GER_establish_mittelafrika
+		
+		cost = 5
+
+		available_if_capitulated = yes
+
+		available = {
+			is_puppet = no
+			
+			custom_trigger_tooltip = {
+				tooltip = GER_control_africa_TRIG 
+
+				any_state = {
+					us_or_puppet_controlled = yes
+					is_on_continent = africa
+				}
+			}
+		}	
+	
+		completion_reward = {
+			custom_effect_tooltip = GER_develop_tooltip
+			every_state = { 
+    			limit = { us_or_puppet_or_allies_controlled = yes  is_on_continent = africa }
+   				add_extra_state_shared_building_slots = 1
+   				add_building_construction = {
+   			 		type = infrastructure
+    				level = 2
+    				instant_build = yes
+				}
+			}
+				
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	} 
+	focus = {
+		id = GER_african_army
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = GER_develop_african_wasteland }
+		
+		x = 0
+		y = 1
+		relative_position_id = GER_develop_african_wasteland
+		
+		cost = 5
+
+		available_if_capitulated = yes
+
+		available = {
+			is_puppet = no
+			
+			custom_trigger_tooltip = {
+				tooltip = GER_establish_mittelafrika_TRIG 
+
+				any_state = {
+					us_or_puppet_controlled = yes
+					is_core_of = MIA
+				}
+			}
+		}	
+	
+		completion_reward = {
+			custom_effect_tooltip = GER_build_mittelafrika_TRIG
+			MIA = {
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory 
+						level = 2
+						instant_build = yes
+					}	
+				}
+				random_owned_controlled_state = {
+					limit = {
+					free_building_slots = {
+							building = arms_factory 
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory 
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+				
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
 	focus = {
 		id = GER_fight_italian_dream
 		icon = GFX_goal_generic_special_forces
 		prerequisite = { focus = GER_anschluss }
 		mutually_exclusive = { focus = GER_alliance_italy }
 		mutually_exclusive = { focus = GER_demand_slovenia }
-		x = -2
+		x = 1
 		y = 1
 		relative_position_id = GER_anschluss
 		
@@ -656,7 +1614,7 @@ focus_tree = {
 	}
 	focus = {
 		id = GER_slovenia_for_protection
-		icon = GFX
+		icon = GFX_goal_GER_Slovenia_For_Protection
 		prerequisite = { focus = GER_fight_italian_dream }
 		mutually_exclusive = { focus = GER_slovenia_for_zara }
 		available = {
@@ -814,7 +1772,7 @@ focus_tree = {
 
 	focus = {
 		id = GER_access_to_med_sea
-		icon = GFX
+		icon = GFX_goal_generic_construct_naval_dockyard
 		prerequisite = { focus = GER_demand_germanic_land }
 		available = {
 			has_full_control_of_state = 736
@@ -890,6 +1848,7 @@ focus_tree = {
 			set_autonomy = { target = YUG autonomy_state = autonomy_satellite }
 		
 			YUG = {
+				inherit_technology = GER
 				random_owned_controlled_state = {
 					limit = {
 						free_building_slots = {
@@ -1087,7 +2046,589 @@ focus_tree = {
 			}
 		}
 	}
+	focus = {
+		id = GER_develop_med_sea_base
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = GER_end_italian_dream }
+		available = {
+			has_full_control_of_state = 736
+		}
+		x = -1
+		y = 1
+		relative_position_id = GER_end_italian_dream
+		cost = 10
 
+		ai_will_do = {
+			factor = 2
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_ANSCHLUSS }
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = GER_new_italian_industry
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = GER_develop_med_sea_base }
+		available = {
+			has_full_control_of_state = 736
+		}
+		x = 0
+		y = 1
+		relative_position_id = GER_develop_med_sea_base
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_ANSCHLUSS }
+		completion_reward = {
+		
+		}
+	}
+
+	focus = {
+		id = GER_new_colonial_empire
+		icon = GFX_goal_tfv_saf_support_german_coup
+		prerequisite = { focus = GER_end_italian_dream }
+		available = {
+			NOT = { has_completed_focus = GER_claims_over_mittelafrika }
+		 	country_exists = LBA
+		 	country_exists = ETH
+			LBA = {
+				is_puppet_of = GER
+				has_full_control_of_state = 448
+				has_full_control_of_state = 449
+				has_full_control_of_state = 450
+				has_full_control_of_state = 451
+			}
+			ETH = {
+				is_puppet_of = GER
+				has_full_control_of_state = 271
+				has_full_control_of_state = 559
+				has_full_control_of_state = 550
+			}
+		}
+		x = 1
+		y = 1
+		relative_position_id = GER_end_italian_dream
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_ANSCHLUSS }
+		completion_reward = {
+			add_war_support	= 0.05
+			ETH = {
+				add_war_support	= 0.05
+			}
+			LBA = {
+				add_war_support	= 0.05
+			}
+			271 = {
+				add_building_construction = {
+    				type = arms_factory
+    				level = 1	
+    				instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+
+			}
+			559 = {
+				add_building_construction = {
+    				type = dockyard
+    				level = 2	
+    				instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+
+			}
+			550 = {
+				add_building_construction = {
+    				type = dockyard
+    				level = 2	
+    				instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+
+			}
+			449 = {
+				add_building_construction = {
+    				type = arms_factory
+    				level = 1	
+    				instant_build = yes
+				}
+				add_building_construction = {
+    				type = industrial_complex
+    				level = 1	
+    				instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+
+			}
+			450 = {
+				add_building_construction = {
+    				type = arms_factory
+    				level = 1	
+    				instant_build = yes
+				}
+				add_building_construction = {
+    				type = industrial_complex
+    				level = 1	
+    				instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+
+			}
+			448 = {
+				add_building_construction = {
+    				type = dockyard
+    				level = 2	
+    				instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+
+			}
+			451 = {
+				add_building_construction = {
+    				type = dockyard
+    				level = 2	
+    				instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 3
+
+			}
+			661 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			662 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			663 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	focus = {
+		id = GER_ETH_air_force
+		icon = GFX_goal_generic_build_airforce
+		prerequisite = { focus = GER_new_colonial_empire }
+		available = {
+			ETH = {
+				is_puppet_of = GER
+				has_full_control_of_state = 271
+				has_full_control_of_state = 559
+				has_full_control_of_state = 550
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = GER_new_colonial_empire
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_ANSCHLUSS }
+		completion_reward = {
+			ETH = {
+				add_war_support	= 0.1
+				air_experience = 25
+				271 = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}
+				add_tech_bonus = {
+					name = GER_ETH_air_force
+					bonus = 1.0
+					uses = 2
+					category = air_doctrine
+				}
+				add_tech_bonus = {
+					name = GER_ETH_air_force
+					bonus = 1.0
+					ahead_reduction = 2
+					uses = 1
+					technology = early_fighter
+					technology = fighter1
+					technology = fighter2
+					technology = fighter3
+				}
+			}
+			send_equipment = {
+   				equipment = fighter_equipment
+    			amount = 50
+    			target = ETH
+			}
+			send_equipment = {
+   				equipment = CAS_equipment
+    			amount = 25
+    			target = ETH
+			}
+		}
+	}
+	focus = {
+		id = GER_new_mittelafrika
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = GER_ETH_air_force }
+		
+		x = 0
+		y = 1
+		relative_position_id = GER_ETH_air_force
+		
+		cost = 3.6
+		
+		available = {
+			is_puppet = no 
+			OR = {
+				has_completed_focus = GER_agypten_deutschland
+				has_completed_focus = GER_ITA_support_mare_nostrum
+			}
+		}
+
+		completion_reward = {
+			add_threat = 3
+		
+			add_political_power = 50
+			add_war_support = 0.05
+			
+			set_autonomy = { target = MIA autonomy_state = autonomy_reichskommissariat }
+				
+			MIA = {
+				add_political_power = 150
+				add_war_support = 0.01
+				custom_effect_tooltip = MIA_afrika_core
+				hidden_effect = {
+
+					add_state_core = 773
+					add_state_core = 558
+					add_state_core = 776
+					add_state_core = 777
+					add_state_core = 781
+					add_state_core = 515
+					add_state_core = 775
+					add_state_core = 774
+					add_state_core = 660
+					add_state_core = 772
+					add_state_core = 539
+					add_state_core = 295
+					add_state_core = 718
+					add_state_core = 538
+					add_state_core = 768
+					add_state_core = 769
+					add_state_core = 548
+					add_state_core = 547
+					add_state_core = 546
+					add_state_core = 796
+					add_state_core = 540
+					add_state_core = 541
+					add_state_core = 771
+					add_state_core = 770
+					add_state_core = 544
+					add_state_core = 545
+					add_state_core = 542
+					add_state_core = 543
+					add_state_core = 708
+					add_state_core = 706
+					add_state_core = 275
+					add_state_core = 681
+					add_state_core = 719
+				}	
+			}
+			effect_tooltip = {
+				custom_effect_tooltip = GER_Mittelafrika_EXPL
+			}
+			every_state = { 
+    			limit = { us_or_puppet_controlled = yes  is_core_of = MIA }
+   				MIA = { transfer_state = PREV }
+			}
+			MIA = {
+				inherit_technology = GER
+				every_state = { 
+    				limit = { us_or_puppet_controlled = yes  is_core_of = ETH }
+   					MIA = { add_state_core = PREV }
+				}
+				every_state = { 
+    				limit = { us_or_puppet_controlled = yes  is_core_of = LBA }
+   					MIA = { add_state_core = PREV }
+				}
+				annex_country = {
+   			 		target = ETH
+   				 	transfer_troops = yes
+				}
+				annex_country = {
+   			 		target = LBA
+   				 	transfer_troops = yes
+				}
+
+			}
+			if = {
+				limit = {
+					has_completed_focus = GER_agypten_deutschland
+				}
+				MIA = {
+					every_state = { 
+    					limit = { us_or_puppet_controlled = yes  is_core_of = EGY }
+   						MIA = { add_state_core = PREV }
+					}
+					annex_country = {
+   			 			target = EGY
+   					 	transfer_troops = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					controls_state = 268
+					controls_state = 269
+				}
+				MIA = {
+					add_state_core = 268
+					add_state_core = 269
+					transfer_state = 268
+					transfer_state = 269
+				}
+			}
+
+		}
+		
+		ai_will_do = {
+			factor = 2
+		}
+	}
+	focus = {
+		id = GER_loyal_african_army
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = GER_new_mittelafrika }
+		
+		x = -1
+		y = 1
+		relative_position_id = GER_new_mittelafrika
+		
+		cost = 5
+
+		available_if_capitulated = yes
+
+		available = {
+			is_puppet = no
+			
+			custom_trigger_tooltip = {
+				tooltip = GER_establish_mittelafrika_TRIG 
+
+				any_state = {
+					us_or_puppet_controlled = yes
+					is_core_of = MIA
+				}
+			}
+		}	
+	
+		completion_reward = {
+			custom_effect_tooltip = GER_build_mittelafrika_TRIG
+			MIA = {
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory 
+						level = 2
+						instant_build = yes
+					}	
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory 
+						level = 2
+						instant_build = yes
+					}	
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory 
+						level = 2
+						instant_build = yes
+					}	
+				}
+				random_owned_controlled_state = {
+					limit = {
+					free_building_slots = {
+							building = arms_factory 
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory 
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+				
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	focus = {
+		id = GER_united_african_development_company
+		icon = GFX_focus_generic_africa_infrastructure
+		prerequisite = { focus = GER_new_mittelafrika  }
+		
+		x = 1
+		y = 1
+		relative_position_id = GER_new_mittelafrika
+		
+		cost = 5
+
+		available_if_capitulated = yes
+
+		available = {
+			is_puppet = no
+			
+			custom_trigger_tooltip = {
+				tooltip = GER_control_africa_TRIG 
+
+				any_state = {
+					us_or_puppet_controlled = yes
+					is_on_continent = africa
+				}
+			}
+		}	
+	
+		completion_reward = {
+			custom_effect_tooltip = GER_develop_tooltip
+			every_state = { 
+    			limit = { us_or_puppet_or_allies_controlled = yes  is_on_continent = africa }
+   				add_extra_state_shared_building_slots = 2
+   				add_building_construction = {
+   			 		type = infrastructure
+    				level = 3
+    				instant_build = yes
+				}
+			}
+				
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	} 
 	focus = {
 		id = GER_common_republican_enemy
 		icon = GFX#_goal_generic_ally_franco
@@ -1117,7 +2658,7 @@ focus_tree = {
 		bypass = {
 			has_global_flag = scw_over
 		}
-		x = 6
+		x = 11
 		y = 1
 		relative_position_id = GER_anschluss
 		cost = 5
@@ -1309,7 +2850,7 @@ focus_tree = {
 		id = GER_rebuild_the_spanish_empire
 		icon = GFX#_goal_generic_ally_franco
 		prerequisite = { focus = GER_establish_condor_legion }
-		prerequisite = { focus = GER_encourage_mussolini }
+		mutually_exclusive = { focus = GER_spanish_debt }
 		available = {
 			if = {
     			limit = {
@@ -1367,6 +2908,58 @@ focus_tree = {
 			}
 		}
 	}
+	focus = {
+		id = GER_spanish_debt
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = GER_establish_condor_legion }
+		available = {
+			
+		}
+		mutually_exclusive = { focus = GER_rebuild_the_spanish_empire }
+		x = -1
+		y = 1
+		relative_position_id = GER_establish_condor_legion
+		cost = 2
+		ai_will_do = {
+			factor = 0.5
+			modifier = {
+				is_in_faction_with = JAP
+				factor = 0
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		
+		}
+	}
+	focus = {
+		id = GER_spanish_debt_develop
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = GER_spanish_debt }
+		available = {
+			
+		}
+		x = 0
+		y = 1
+		relative_position_id = GER_spanish_debt
+		cost = 2
+		ai_will_do = {
+			factor = 0.5
+			modifier = {
+				is_in_faction_with = JAP
+				factor = 0
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+		
+		}
+	}
+
 	focus = {
 		id = GER_china_friend
 		icon = GFX_goal_generic_military_deal
@@ -2077,7 +3670,7 @@ focus_tree = {
 				size > 750000
 			}
 		}
-		x = 3
+		x = 6
 		y = 1
 		relative_position_id = GER_anschluss
 		cost = 10

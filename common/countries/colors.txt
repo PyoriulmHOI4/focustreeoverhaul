@@ -711,3 +711,7 @@ SHL = {
 	color = rgb { 51 51 255 }
 	color_ui = rgb { 51 51 255 }
 }
+MIA = {
+	color = rgb { 137 157 120 }
+	color_ui = rgb { 127 132 104 }
+}
