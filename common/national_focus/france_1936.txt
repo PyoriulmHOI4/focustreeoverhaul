@@ -22,7 +22,7 @@ focus_tree = {
     # L'Industrie Français
     focus = {
         id = FRA_french_industry
-        icon = GFX_focus_FRA_devalue_the_franc
+        icon = GFX_focus_fra_devalue_the_franc
         x = 6
         y = 0
         cost = 5
@@ -97,7 +97,7 @@ focus_tree = {
         icon = GFX_focus_generic_industry_3
         prerequisite = { focus = FRA_develop_metropolitan_france }
         x = 0
-        y = 1
+        y = 2
         relative_position_id = FRA_develop_metropolitan_france
         cost = 10
 
@@ -181,9 +181,11 @@ focus_tree = {
         completion_reward = {
             random_owned_controlled_state = {
                 limit = {
-                    state = 459
-                    state = 460
-                    state = 513
+                    OR = {
+                        state = 459
+                        state = 460
+                        state = 513
+                    }
                 }
                 add_extra_state_shared_building_slots = 2
                 add_state_flag = FRA_colonial_industry_target
@@ -191,9 +193,11 @@ focus_tree = {
             }
             random_owned_controlled_state = {
                 limit = {
-                    state = 459
-                    state = 460
-                    state = 513
+                    OR = {
+                        state = 459
+                        state = 460
+                        state = 513
+                    }
                 }
                 add_extra_state_shared_building_slots = 2
                 add_state_flag = FRA_colonial_industry_target
@@ -221,14 +225,16 @@ focus_tree = {
         completion_reward = {
             random_owned_controlled_state = {
                 limit = {
-                    state = 272
-                    state = 280
-                    state = 556
-                    state = 779
-                    state = 778
-                    state = 781
-                    state = 776
-                    state = 777
+                    OR = {
+                        state = 272
+                        state = 280
+                        state = 556
+                        state = 779
+                        state = 778
+                        state = 781
+                        state = 776
+                        state = 777
+                    }
                 }
                 add_extra_state_shared_building_slots = 2
                 add_state_flag = FRA_colonial_industry_target
@@ -236,18 +242,232 @@ focus_tree = {
             }
             random_owned_controlled_state = {
                 limit = {
-                    state = 272
-                    state = 280
-                    state = 556
-                    state = 779
-                    state = 778
-                    state = 781
-                    state = 776
-                    state = 777
+                    OR = {
+                        state = 272
+                        state = 280
+                        state = 556
+                        state = 779
+                        state = 778
+                        state = 781
+                        state = 776
+                        state = 777
+                    }
                 }
                 add_extra_state_shared_building_slots = 2
                 add_state_flag = FRA_colonial_industry_target
                 add_state_flag = FRA_industrial_expansion_target
+            }
+        }
+    }
+
+    # Invest in Indochina
+    focus = {
+        id = FRA_invest_indochina
+        icon = GFX_focus_generic_industry_1
+        prerequisite = { focus = FRA_the_empire_worldwide }
+        x = 0
+        y = 2
+        relative_position_id = FRA_the_empire_worldwide
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available_if_capitulated = no
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        completion_reward = {
+            random_owned_controlled_state = {
+                limit = {
+                    OR = {
+                        state = 286
+                        state = 741
+                        state = 670
+                        state = 671
+                    }
+                }
+                add_extra_state_shared_building_slots = 2
+                add_state_flag = FRA_colonial_industry_target
+            }
+        }
+    }
+
+    # Continue the Middle East Mandate
+    focus = {
+        id = FRA_continue_the_me_mandate
+        icon = GFX_focus_eng_move_to_secure_the_dominions
+        prerequisite = { focus = FRA_the_empire_worldwide }
+        x = 2
+        y = 1
+        relative_position_id = FRA_the_empire_worldwide
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available_if_capitulated = no
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        completion_reward = {
+            add_political_power = 75
+        }
+    }
+
+    # Invest in Syria
+    focus = {
+        id = FRA_invest_syria
+        icon = GFX_focus_generic_industry_1
+        prerequisite = { focus = FRA_continue_the_me_mandate }
+        x = 0
+        y = 1
+        relative_position_id = FRA_continue_the_me_mandate
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available_if_capitulated = no
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        completion_reward = {
+            random_owned_controlled_state = {
+                limit = {
+                    OR = {
+                        state = 553
+                        state = 554
+                        state = 677
+                        state = 680
+                    }
+                }
+                add_extra_state_shared_building_slots = 2
+                add_state_flag = FRA_colonial_industry_target
+            }
+        }
+    }
+
+    # Colonial Industry
+    focus = {
+        id = FRA_colonial_industry
+        icon = GFX_focus_generic_industry_3
+        prerequisite = { focus = FRA_invest_syria }
+        prerequisite = { focus = FRA_invest_indochina }
+        prerequisite = { focus = FRA_invest_west_africa }
+        x = 0
+        y = 1
+        relative_position_id = FRA_invest_indochina
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available_if_capitulated = no
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        completion_reward = {
+            every_state = {
+                limit = {
+                    has_state_flag = FRA_colonial_industry_target
+                }
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+    }
+
+    # Support the Grandes Écoles
+    focus = {
+        id = FRA_grandes_ecoles
+        icon = GFX_focus_research
+        prerequisite = { focus = FRA_champions }
+        x = 2
+        y = 5
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available_if_capitulated = no
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        completion_reward = {
+            add_research_slot = 1
+        }
+    }
+
+    # French War Machine
+    focus = {
+        id = FRA_war_machine
+        icon = GFX_goal_generic_construct_mil_factory
+        prerequisite = { focus = FRA_champions OR = FRA_colonial_industry }
+        x = 4
+        y = 5
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available_if_capitulated = no
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        completion_reward = {
+            every_state = {
+                limit = {
+                    has_state_flag = FRA_industrial_expansion_target
+                }
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+    }
+
+    # Centre de Recherche National
+    focus = {
+        id = FRA_crn
+        icon = GFX_focus_research
+        prerequisite = { focus = FRA_colonial_industry }
+        x = 2
+        y = 2
+        relative_position_id = FRA_colonial_industry
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available_if_capitulated = no
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        completion_reward = {
+            add_research_slot = 1
+        }
+    }
+
+    # Invest Across The World
+    focus = {
+        id = FRA_invest_across_the_world
+        icon = GFX_goal_generic_construction
+        prerequisite = { focus = FRA_crn }
+        prerequisite = { focus = FRA_grandes_ecoles }
+        prerequisite = { focus = FRA_war_machine }
+        x = 0
+        y = 1
+        relative_position_id = FRA_war_machine
+        cost = 10
+
+        ai_will_do = {
+            factor = 1
+        }
+
+        available_if_capitulated = no
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        completion_reward = {
+            add_ideas = {
+                FRA_global_investments
             }
         }
     }
