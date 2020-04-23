@@ -1,0 +1,27 @@
+
+state={
+	id=809
+	name="STATE_809"
+	manpower=313600
+	
+	state_category = rural 
+	history={
+		owner = GER
+		victory_points = {
+			3530 10
+		}
+		buildings = {
+			infrastructure = 8
+		}
+		add_core_of = GER
+		set_demilitarized_zone = yes
+		1936.3.7 = {
+			set_demilitarized_zone = no
+		}
+	}
+
+	provinces={
+		3530 6568 6581
+	}
+	buildings_max_level_factor=1.000
+}

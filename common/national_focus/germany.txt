@@ -2612,7 +2612,7 @@ focus_tree = {
 		}	
 	
 		completion_reward = {
-			custom_effect_tooltip = GER_develop_tooltip
+			custom_effect_tooltip = GER_united_develop_tooltip
 			every_state = { 
     			limit = { us_or_puppet_or_allies_controlled = yes  is_on_continent = africa }
    				add_extra_state_shared_building_slots = 2

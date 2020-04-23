@@ -796,7 +796,7 @@
  STATE_795:0 "Santarém"
  STATE_796:0 "North Angola"
  #new
- STATE_797:0 "Baden"
+ STATE_797:0 "Südbaden"
  STATE_798:0 "Nassau"
  STATE_799:0 "Eastern Rhineland"
  STATE_800:0 "North Schleswig"
@@ -808,3 +808,6 @@
  STATE_806:0 "Kosovo"
  STATE_807:0 "Vojvodina"
  STATE_808:0 "Pesraca"
+ STATE_809:0 "Nordbaden"
+ STATE_810:0 "Württemberg-Hohenzollern"
+ STATE_811:0 "Saarland"
