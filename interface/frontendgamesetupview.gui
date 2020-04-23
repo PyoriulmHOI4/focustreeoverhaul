@@ -516,7 +516,7 @@ guiTypes = {
 			textureFile = ""
 			font = "hoi_24header"
 			borderSize = {x = 0 y = 0}
-			text = "DH_BOOKMARK"
+			text = "BOOKMARK_TT"
 			maxWidth = 340
 			maxHeight = 30
 			format = left
@@ -620,7 +620,7 @@ guiTypes = {
 			textureFile = ""
 			font = "hoi_24header"
 			borderSize = {x = 0 y = 0}
-			text = "DH_COUNTRY_SELECTION"
+			text = "CHOOSE_TT"
 			maxWidth = 340
 			maxHeight = 30
 			format = center
