@@ -2,17 +2,16 @@
 state={
 	id=51
 	name="STATE_51"
-	manpower=4096496
+	manpower=38649368
 	resources={
 		steel=30 # was: 54
 	}
 
 
-	state_category = city
+	state_category = town
 	
 	history={
 		owner = GER
-		victory_points = { 11435 1 }
 		victory_points = {
 			587 5 
 		}
@@ -24,7 +23,7 @@ state={
 		}
 		buildings = {
 			infrastructure = 8
-			arms_factory = 3
+			arms_factory = 2
 			air_base = 3
 
 		}
@@ -46,7 +45,7 @@ state={
 	}
 
 	provinces={
-		587 3444 3547 9522 11435 11470 11494
+		587 3444 3547 9522
 	}
 	
 }

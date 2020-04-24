@@ -1,0 +1,41 @@
+
+state={
+	id=814
+	name="STATE_814"
+	manpower=354642
+
+	state_category = large_city
+	
+	history={
+		owner = GER
+		victory_points = {
+			495 5 
+		}
+		buildings = {
+			infrastructure = 8
+			industrial_complex = 1
+			arms_factory = 2
+		}
+		add_core_of = GER
+
+	
+		set_demilitarized_zone = yes
+	
+	
+		1936.3.7 = {
+			set_demilitarized_zone = no
+		}
+		1939.1.1 ={
+			buildings = {
+				radar_station = 1
+				industrial_complex = 3
+				arms_factory = 4
+			}
+		}
+	}
+
+	provinces={
+		495 6622 11346
+	}
+	
+}
