@@ -1,0 +1,30 @@
+state= {
+	id=819
+	name="STATE_819"
+	manpower = 154565
+
+	state_category = rural
+
+	history=
+	{
+		owner = DEN
+
+		victory_points = {
+			3325 5
+		}
+		buildings = {
+			infrastructure = 8
+			arms_factory = 2
+
+			3325 = {
+				naval_base = 3
+			}
+			
+		}
+		add_core_of = DEN
+	}
+
+	provinces= {
+		3325 3374
+	}
+}
