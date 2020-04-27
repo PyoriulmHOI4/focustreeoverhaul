@@ -1,0 +1,27 @@
+
+state={
+	id=826
+	name="STATE_826"
+	manpower = 927583
+	
+	state_category = town
+
+	history={
+		owner = AUS
+		buildings = {
+			infrastructure = 6
+			arms_factory = 3
+		}
+		add_core_of = AUS
+
+		1938.3.12 = {
+			owner = GER
+			controller = GER
+			add_core_of = GER
+		}
+	}
+
+	provinces={
+		653 9646 9648 9679 9650 6687 6691 13247
+	}
+}

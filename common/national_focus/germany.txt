@@ -6733,4 +6733,39 @@ focus_tree = {
 			puppet = CRO
 		}
 	}
+	focus = {
+		id = GER_testing_two
+		icon = GFX
+		x = 10
+		y = 16
+		cost = 10
+		available = {
+			always = false
+		}
+		ai_will_do = {
+			factor = 4
+		}
+
+		available_if_capitulated = yes
+		search_filters = { GER_RHINELAND GER_WESTWARD }
+		completion_reward = {
+			FRA = { 
+				set_state_controller = 821
+				set_state_controller = 153
+			}
+			USA = { 
+				set_state_controller = 824
+				set_state_controller = 152
+			}
+			ENG = { 
+				set_state_controller = 822
+				set_state_controller = 823
+				set_state_controller = 826
+			}
+			SOV = { 
+				set_state_controller = 4
+				set_state_controller = 825
+			}
+		}
+	}
 }
