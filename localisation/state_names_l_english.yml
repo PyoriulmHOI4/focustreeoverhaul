@@ -100,7 +100,7 @@
  STATE_99:0 "Jylland"
  STATE_100:0 "Iceland"
  STATE_101:0 "Greenland"
- STATE_102:0 "Slovenia"
+ STATE_102:0 "Spodnja Štajerska"
  STATE_103:0 "Dalmatia"
  STATE_104:0 "Bosnia"
  STATE_105:0 "Montenegro"
@@ -826,3 +826,4 @@
  STATE_824:0 "Salzburg"
  STATE_825:0 "Burgenland"
  STATE_826:0 "Steiermark"
+ STATE_827:0 "Rijeka"
